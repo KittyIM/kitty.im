@@ -3,4 +3,6 @@
 *.pro.user
 *.o
 *moc_*
+*ui_*
+*qrc_*
 bin/*
