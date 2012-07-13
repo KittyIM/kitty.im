@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/core">
+        <file>images/icons/kitty_48.png</file>
+        <file>images/logo.png</file>
+    </qresource>
+</RCC>
