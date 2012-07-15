@@ -20,7 +20,7 @@ namespace Core
 			bool hasPassword(const QString &profileName) const;
 			bool checkPassword(const QString &profileName, const QString &password) const;
 
-			QString profilePath() const { return m_profilePath; }
+			QString profilePath(const QString &profileName) const;
 			void setProfilePath(const QString &profilePath) { m_profilePath = profilePath; }
 
 		private:
