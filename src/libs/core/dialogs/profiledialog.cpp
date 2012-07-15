@@ -5,8 +5,10 @@
 #include <QtCore/QDir>
 #include <QtGui/QInputDialog>
 #include <QtGui/QMessageBox>
+#include <QtGui/QPainter>
 
 #include <profiles/profilemanager.h>
+#include <3rdparty/qtwin/qtwin.h>
 #include <core_constants.h>
 
 namespace Core
@@ -19,6 +21,11 @@ namespace Core
 		m_ui->setupUi(this);
 		m_ui->passwordEdit->hide();
 		m_ui->passwordLabel->hide();
+
+		if(QtWin::isCompositionEnabled()) {
+			QtWin::extendFrameIntoClientArea(this);
+			setContentsMargins(0, 0, 0, 0);
+		}
 	}
 
 	ProfileDialog::~ProfileDialog()
@@ -29,6 +36,20 @@ namespace Core
 	void ProfileDialog::showEvent(QShowEvent *event)
 	{
 		updateProfiles();
+	}
+
+	void ProfileDialog::paintEvent(QPaintEvent *event)
+	{
+#ifdef Q_WS_WIN32
+	if(QtWin::isCompositionEnabled()) {
+		QPainter p(this);
+		p.setPen(palette().midlight().color());
+		p.setBrush(palette().window());
+		p.drawRoundedRect(m_ui->profilesGroupBox->geometry(), 2, 2);
+	}
+#endif
+
+	QDialog::paintEvent(event);
 	}
 
 	void ProfileDialog::updateControls(QTreeWidgetItem *item)

@@ -31,6 +31,7 @@ namespace Core
 
 		protected:
 			void showEvent(QShowEvent *event);
+			void paintEvent(QPaintEvent *event);
 
 		private slots:
 			void updateControls(QTreeWidgetItem *item);
