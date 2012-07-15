@@ -22,7 +22,8 @@ HEADERS  += core_global.h \
             profiles/profilemanager.h \
             dialogs/profiledialog.h \
             jsonsettings.h \
-    tabs/tabmanager.h
+    tabs/tabmanager.h \
+    core_constants.h
 
 INCLUDEPATH += $$PWD
 

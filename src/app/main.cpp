@@ -18,14 +18,6 @@ int main(int argc, char *argv[])
 	Core::ArgumentParser parser;
 	parser.parseArguments(app.arguments());
 
-	qDebug() << parser.asCommandLine();
-
-	QMapIterator<QString, QString> it(parser);
-	while(it.hasNext()) {
-		it.next();
-		qDebug() << it.key() << "=" << it.value();
-	}
-
 	QString profilePath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/profiles";
 	if(parser.contains("portable")) {
 		profilePath = app.applicationDirPath() + "/profiles";
@@ -34,27 +26,28 @@ int main(int argc, char *argv[])
 	Core::ProfileManager profileMgr;
 	profileMgr.setProfilePath(profilePath);
 
-	qDebug() << profileMgr.profiles();
-
-	QString profileToLoad;
+	QString profileName;
 	if(profileMgr.count() > 0) {
 		QString argumentProfile = parser.value("profile");
 
 		if(!argumentProfile.isEmpty()) {
 			if(profileMgr.exists(argumentProfile)) {
-				if(!profileMgr.hasPassword(argumentProfile) || profileMgr.checkPassword(argumentProfile, parser.value("password"))) {
-					profileToLoad = argumentProfile;
+				if(!profileMgr.hasPassword(argumentProfile) ||
+					profileMgr.checkPassword(argumentProfile, parser.value("password"))
+				) {
+					profileName = argumentProfile;
 				}
-			} else if(profileMgr.count() == 1) {
-				QString onlyProfile = profileMgr.profiles().first();
-				if(!profileMgr.hasPassword(onlyProfile)) {
-					profileToLoad = onlyProfile;
-				}
+			}
+		} else if(profileMgr.count() == 1) {
+			QString onlyProfile = profileMgr.profiles().first();
+
+			if(!profileMgr.hasPassword(onlyProfile)) {
+				profileName = onlyProfile;
 			}
 		}
 	}
 
-	if(profileToLoad.isEmpty()) {
+	if(profileName.isEmpty()) {
 		Core::ProfileDialog dlg;
 		dlg.setProfileManager(&profileMgr);
 
@@ -64,7 +57,7 @@ int main(int argc, char *argv[])
 			return 0;
 		}
 	} else {
-
+		qDebug() << "login" << profileName;
 	}
 
 	/*QStringList pluginPaths;

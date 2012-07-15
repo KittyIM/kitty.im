@@ -49,7 +49,8 @@ namespace Core
 
 		const JsonSettings settings(settingsPath);
 		QString actualPassword = settings.value("password").toString();
-		QString passwordHash = QCryptographicHash::hash(password.toAscii(), QCryptographicHash::Sha1);
+		QString passwordHash = QCryptographicHash::hash(password.toAscii(), QCryptographicHash::Sha1).toHex();
+		qDebug() << passwordHash;
 
 		return (passwordHash == actualPassword);
 	}
