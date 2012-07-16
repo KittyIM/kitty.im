@@ -27,7 +27,7 @@ namespace Core
 
 				QString newName = name;
 				if(!newName.isEmpty()) {
-					newName.append(".");
+					newName.append('/');
 				}
 
 				newName.append(it.key());
@@ -41,7 +41,7 @@ namespace Core
 
 	void JsonSettings::writeMap(QVariant &root, const QString &key, const QVariant &value)
 	{
-		int pos = key.indexOf('.');
+		int pos = key.indexOf('/');
 
 		if(pos < 0) {
 			QVariantMap map = root.toMap();

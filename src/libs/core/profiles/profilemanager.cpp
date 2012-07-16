@@ -8,10 +8,6 @@
 
 namespace Core
 {
-	ProfileManager::ProfileManager()
-	{
-	}
-
 	QStringList ProfileManager::profiles() const
 	{
 		return QDir(m_profilePath).entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
@@ -50,7 +46,6 @@ namespace Core
 		const JsonSettings settings(settingsPath);
 		QString actualPassword = settings.value("password").toString();
 		QString passwordHash = QCryptographicHash::hash(password.toAscii(), QCryptographicHash::Sha1).toHex();
-		qDebug() << passwordHash;
 
 		return (passwordHash == actualPassword);
 	}

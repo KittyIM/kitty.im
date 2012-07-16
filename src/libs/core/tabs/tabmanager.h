@@ -3,6 +3,8 @@
 
 #include "../core_global.h"
 
+class QTabWidget;
+
 namespace Core
 {
 	class CORE_EXPORT TabManager : public QObject
@@ -10,7 +12,13 @@ namespace Core
 		Q_OBJECT
 
 		public:
-			explicit TabManager(QObject *parent = 0);
+			TabManager();
+
+			QTabWidget *tabWidget() { return m_tabWidget; }
+			void setTabWidget(QTabWidget *tabWidget) { m_tabWidget = tabWidget; }
+
+		private:
+			QTabWidget *m_tabWidget;
 	};
 }
 

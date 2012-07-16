@@ -10,7 +10,8 @@ namespace Core
 		Q_OBJECT
 
 		public:
-			ProfileManager();
+			ProfileManager()
+			{ }
 
 			QStringList profiles() const;
 

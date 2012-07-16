@@ -3,9 +3,11 @@
 
 #include <QtCore/QSettings>
 
+#include "core_global.h"
+
 namespace Core
 {
-	class JsonSettings: public QSettings
+	class CORE_EXPORT JsonSettings: public QSettings
 	{
 		Q_OBJECT
 
