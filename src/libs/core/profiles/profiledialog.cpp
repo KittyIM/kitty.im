@@ -10,6 +10,7 @@
 #include <profiles/profilemanager.h>
 #include <3rdparty/qtwin/qtwin.h>
 #include <core_constants.h>
+#include <utils/utils.h>
 
 namespace Core
 {
@@ -35,21 +36,21 @@ namespace Core
 
 	void ProfileDialog::showEvent(QShowEvent *event)
 	{
+		m_ui->versionLabel->setText(QString("kitty.im v%1").arg(Constants::VERSION));
+
 		updateProfiles();
 	}
 
 	void ProfileDialog::paintEvent(QPaintEvent *event)
 	{
 #ifdef Q_WS_WIN32
-	if(QtWin::isCompositionEnabled()) {
-		QPainter p(this);
-		p.setPen(palette().midlight().color());
-		p.setBrush(palette().window());
-		p.drawRoundedRect(m_ui->profilesGroupBox->geometry(), 2, 2);
-	}
+		if(QtWin::isCompositionEnabled()) {
+			QPainter p(this);
+			p.setPen(palette().midlight().color());
+			p.setBrush(palette().window());
+			p.drawRoundedRect(m_ui->profilesGroupBox->geometry(), 2, 2);
+		}
 #endif
-
-	QDialog::paintEvent(event);
 	}
 
 	void ProfileDialog::updateControls(QTreeWidgetItem *item)
@@ -123,7 +124,30 @@ namespace Core
 
 	void ProfileDialog::deleteProfile()
 	{
+		if(m_ui->passwordEdit->isVisible() && m_ui->passwordEdit->text().isEmpty()) {
+			m_ui->passwordEdit->setFocus();
+			return;
+		}
 
+		QTreeWidgetItem *profileItem = m_ui->profileTree->currentItem();
+		if(!profileItem || !m_profileManager)
+			return;
+
+		const QString profileName = profileItem->text(0);
+		if(!m_profileManager->checkPassword(profileName, m_ui->passwordEdit->text())) {
+			QMessageBox::warning(this, tr("Wrong password"), tr("The password you entered is wrong"));
+
+			m_ui->passwordEdit->selectAll();
+			m_ui->passwordEdit->setFocus();
+
+			return;
+		}
+
+		int result = QMessageBox::question(this, tr("Are you sure?"), QString(tr("Do you really want to delete profile \"%1\"?").arg(profileName)), QMessageBox::Yes, QMessageBox::No);
+		if(result == QMessageBox::Yes) {
+			Utils::rmPath(m_profileManager->profilePath(profileName));
+			updateProfiles();
+		}
 	}
 
 	void ProfileDialog::updateProfiles()

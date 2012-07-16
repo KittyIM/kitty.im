@@ -1,4 +1,6 @@
 TEMPLATE = subdirs
+CONFIG  += ordered
 
-SUBDIRS += core \
-    3rdparty
+SUBDIRS += utils \
+           3rdparty \
+           core

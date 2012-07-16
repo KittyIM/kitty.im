@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Choose profile</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -107,7 +107,7 @@
      <item>
       <widget class="QLabel" name="versionLabel">
        <property name="text">
-        <string notr="true">KittyIM v</string>
+        <string notr="true">kitty.im v</string>
        </property>
       </widget>
      </item>

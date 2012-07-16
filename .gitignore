@@ -6,4 +6,6 @@
 *ui_*
 *qrc_*
 *object_script*
+*.a
+*.dll
 bin/*

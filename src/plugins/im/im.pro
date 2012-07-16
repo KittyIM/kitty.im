@@ -7,9 +7,7 @@ TEMPLATE = lib
 
 DEFINES += IM_LIBRARY
 
-SOURCES += \
-    plugin.cpp
+SOURCES += plugin.cpp
 
-HEADERS += \
-           im_global.h \
-    plugin.h
+HEADERS += im_global.h \
+           plugin.h

@@ -5,7 +5,9 @@ namespace Core
 {
 	namespace Constants
 	{
-		const char ICON_KITTY48[] = ":/core/images/icons/kitty_48.png";
+		const char VERSION[]       = "0.0.1";
+
+		const char ICON_KITTY48[]  = ":/core/images/icons/kitty_48.png";
 		const char ICON_KITYLOGO[] = ":/core/images/logo.png";
 	}
 }

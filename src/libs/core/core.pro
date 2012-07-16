@@ -1,4 +1,5 @@
 include(../../../kittyim.pri)
+include(../utils/utils.pri)
 include(../3rdparty/json/json.pri)
 include(../3rdparty/qtwin/qtwin.pri)
 
@@ -8,26 +9,26 @@ TEMPLATE     = lib
 
 DEFINES     += CORE_LIBRARY
 
-SOURCES     += plugins/manager.cpp \
+SOURCES     += profiles/profilemanager.cpp \
+               profiles/profiledialog.cpp \
+               plugins/manager.cpp \
+               tabs/tabmanager.cpp \
                argumentparser.cpp \
-               profiles/profilemanager.cpp \
-               dialogs/profiledialog.cpp \
-               jsonsettings.cpp \
-               tabs/tabmanager.cpp
+               jsonsettings.cpp
 
-HEADERS     += core_global.h \
+HEADERS     += profiles/profilemanager.h \
+               profiles/profiledialog.h \
+               plugins/plugininfo.h \
                plugins/manager.h \
                plugins/iplugin.h \
-               plugins/plugininfo.h \
-               argumentparser.h \
-               profiles/profilemanager.h \
-               dialogs/profiledialog.h \
-               jsonsettings.h \
                tabs/tabmanager.h \
-               core_constants.h
+               argumentparser.h \
+               jsonsettings.h \
+               core_constants.h \
+               core_global.h
 
 INCLUDEPATH += $$PWD
 
-FORMS       += dialogs/profiledialog.ui
+FORMS       += profiles/profiledialog.ui
 
 RESOURCES   += core.qrc
