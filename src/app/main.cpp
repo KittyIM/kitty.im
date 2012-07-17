@@ -68,18 +68,26 @@ int main(int argc, char *argv[])
 	mainWindow.setProfileManager(&profileManager);
 
 	mainWindow.init();
-	mainWindow.show();
 
-	/*QStringList pluginPaths;
+	QStringList pluginPaths;
 	pluginPaths << app.applicationDirPath() + "/plugins";
+
+	const QString pluginSettingsPath = profileManager.profilePath(profileName) + "/plugins.json";
+	Core::JsonSettings pluginSettings(pluginSettingsPath);
 
 	Core::PluginManager mgr;
 	mgr.setPluginPaths(pluginPaths);
+	mgr.setPluginSettings(&pluginSettings);
+
+	if(mgr.hasNewPlugins()) {
+		qDebug() << "bloody new plugins";
+	}
+
 	mgr.loadPlugins();
 
 	foreach(Core::IPlugin *plugin, mgr.plugins()) {
 		qDebug() << plugin->info()->name();
-	}*/
+	}
 
 	return app.exec();
 }
