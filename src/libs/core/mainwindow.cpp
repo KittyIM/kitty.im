@@ -6,7 +6,12 @@
 
 #include <QtGui/QApplication>
 #include <QtCore/QDebug>
-#include <QPushButton>
+
+static const char settingsGroup[]    = "MainWindow";
+static const char geometryKey[]      = "windowGeometry";
+static const char hideOnStartupKey[] = "hideOnStartup";
+static const char isToolWindowKey[]  = "isToolWindow";
+static const char stateKey[]         = "windowState";
 
 namespace Core
 {
@@ -39,7 +44,15 @@ namespace Core
 
 	void MainWindow::init()
 	{
+		if(!m_settings)
+			return;
+
 		readSettings();
+
+		m_settings->beginGroup(settingsGroup);
+		if(!m_settings->value(hideOnStartupKey).toBool())
+			show();
+		m_settings->endGroup();
 	}
 
 	void MainWindow::aboutToClose()
@@ -49,15 +62,12 @@ namespace Core
 
 	void MainWindow::readSettings()
 	{
-		if(!m_settings)
-			return;
+		m_settings->beginGroup(settingsGroup);
 
-		m_settings->beginGroup("MainWindow");
+		restoreGeometry(m_settings->value(geometryKey).toByteArray());
+		restoreState(m_settings->value(stateKey).toByteArray());
 
-		restoreGeometry(m_settings->value("geometry").toByteArray());
-		restoreState(m_settings->value("state").toByteArray());
-
-		if(m_settings->value("tool").toBool())
+		if(m_settings->value(isToolWindowKey, true).toBool())
 			setWindowFlags(windowFlags() | Qt::Tool);
 
 		m_settings->endGroup();
@@ -68,10 +78,10 @@ namespace Core
 		if(!m_settings)
 			return;
 
-		m_settings->beginGroup("MainWindow");
-		m_settings->setValue("geometry", saveGeometry());
-		m_settings->setValue("state", saveState());
-		m_settings->setValue("tool", (windowFlags() & Qt::Tool) == Qt::Tool);
+		m_settings->beginGroup(settingsGroup);
+		m_settings->setValue(geometryKey, saveGeometry());
+		m_settings->setValue(stateKey, saveState());
+		m_settings->setValue(isToolWindowKey, (windowFlags() & Qt::Tool) == Qt::Tool);
 		m_settings->endGroup();
 	}
 
