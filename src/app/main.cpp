@@ -5,6 +5,7 @@
 
 #include <core/profiles/profilemanager.h>
 #include <core/profiles/profiledialog.h>
+#include <core/plugins/pluginitem.h>
 #include <core/plugins/manager.h>
 #include <core/plugins/iplugin.h>
 #include <core/argumentparser.h>
@@ -20,12 +21,12 @@ int main(int argc, char *argv[])
 	QApplication::setApplicationName("kitty.im");
 	QApplication::setOrganizationName("arturo182");
 
-	Core::ArgumentParser parser;
-	parser.parseArguments(app.arguments());
+	Core::ArgumentParser argumentParser;
+	argumentParser.parseArguments(app.arguments());
 
 	//profile
 	QString profilePath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/profiles";
-	if(parser.contains("portable")) {
+	if(argumentParser.contains("portable")) {
 		profilePath = app.applicationDirPath() + "/profiles";
 	}
 
@@ -34,12 +35,12 @@ int main(int argc, char *argv[])
 
 	QString profileName;
 	if(profileManager.count() > 0) {
-		QString argumentProfile = parser.value("profile");
+		QString argumentProfile = argumentParser.value("profile");
 
 		if(!argumentProfile.isEmpty()) {
 			if(profileManager.exists(argumentProfile)) {
 				if(!profileManager.hasPassword(argumentProfile) ||
-					profileManager.checkPassword(argumentProfile, parser.value("password"))
+					profileManager.checkPassword(argumentProfile, argumentParser.value("password"))
 				) {
 					profileName = argumentProfile;
 				}
@@ -90,6 +91,7 @@ int main(int argc, char *argv[])
 				app.installTranslator(&translator);
 				app.installTranslator(&qtTranslator);
 				app.setProperty("kittyim_locale", locale);
+
 				break;
 			}
 
@@ -103,28 +105,25 @@ int main(int argc, char *argv[])
 	Core::MainWindow mainWindow;
 	mainWindow.setSettings(&settings);
 	mainWindow.setProfileManager(&profileManager);
-
 	mainWindow.init();
 
 	//plugins
 	QStringList pluginPaths;
 	pluginPaths << app.applicationDirPath() + "/plugins";
 
-	const QString pluginSettingsPath = profileManager.profilePath(profileName) + "/plugins.json";
-	Core::JsonSettings pluginSettings(pluginSettingsPath);
+	Core::PluginManager pluginManager;
+	pluginManager.setPluginPaths(pluginPaths);
+	pluginManager.setSettings(&settings);
 
-	Core::PluginManager mgr;
-	mgr.setPluginPaths(pluginPaths);
-	mgr.setPluginSettings(&pluginSettings);
-
-	if(mgr.hasNewPlugins()) {
+	if(pluginManager.scanForPlugins()) {
+		//show plugindialog here
 		qDebug() << "bloody new plugins";
 	}
 
-	mgr.loadPlugins();
+	pluginManager.loadPlugins();
 
-	foreach(Core::IPlugin *plugin, mgr.plugins()) {
-		qDebug() << plugin->info()->name();
+	foreach(Core::PluginItem *plugin, pluginManager.plugins()) {
+		qDebug() << plugin->name();
 	}
 
 	return app.exec();

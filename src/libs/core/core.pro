@@ -15,7 +15,8 @@ SOURCES     += profiles/profilemanager.cpp \
                tabs/tabmanager.cpp \
                argumentparser.cpp \
                jsonsettings.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    plugins/pluginitem.cpp
 
 HEADERS     += profiles/profilemanager.h \
                profiles/profiledialog.h \
@@ -27,7 +28,8 @@ HEADERS     += profiles/profilemanager.h \
                jsonsettings.h \
                core_constants.h \
                core_global.h \
-    mainwindow.h
+    mainwindow.h \
+    plugins/pluginitem.h
 
 INCLUDEPATH += $$PWD
 

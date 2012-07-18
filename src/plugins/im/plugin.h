@@ -13,6 +13,10 @@ namespace Im
 
 		public:
 			Plugin();
+
+			bool initialize(QString *errorString);
+			void pluginsInitialized();
+			void aboutToClose();
 	};
 }
 

@@ -6,6 +6,7 @@
 
 #include <QtGui/QApplication>
 #include <QtCore/QDebug>
+#include <QPushButton>
 
 static const char settingsGroup[]    = "MainWindow";
 static const char geometryKey[]      = "windowGeometry";
@@ -26,6 +27,12 @@ namespace Core
 	{
 		m_instance = this;
 		m_tabManager->setTabWidget(m_tabWidget);
+
+		//<debug>
+		QPushButton *btn = new QPushButton("quit");
+		connect(btn, SIGNAL(clicked()), qApp, SLOT(quit()));
+		m_tabWidget->addTab(btn, "btn");
+		//</debug>
 
 		connect(qApp, SIGNAL(aboutToQuit()), SLOT(aboutToClose()));
 

@@ -8,7 +8,7 @@
 namespace Core
 {
 	class JsonSettings;
-	class IPlugin;
+	class PluginItem;
 
 	class CORE_EXPORT PluginManager
 	{
@@ -17,20 +17,23 @@ namespace Core
 
 			void loadPlugins();
 
-			bool hasNewPlugins() const;
+			bool scanForPlugins();
 
-			QList<IPlugin*> plugins() const;
+			QList<PluginItem*> plugins() const;
 
 			QStringList pluginPaths() const { return m_pluginPaths; }
 			void setPluginPaths(const QStringList &pluginPaths) { m_pluginPaths = pluginPaths; }
 
-			JsonSettings *pluginSettings() { return m_pluginSettings; }
-			void setPluginSettings(JsonSettings *pluginSettings) { m_pluginSettings = pluginSettings; }
+			JsonSettings *settings() { return m_settings; }
+			void setSettings(JsonSettings *settings) { m_settings = settings; }
+
+		public slots:
+			void aboutToClose();
 
 		private:
 			QStringList m_pluginPaths;
-			JsonSettings *m_pluginSettings;
-			QList<IPlugin*> m_plugins;
+			JsonSettings *m_settings;
+			QList<PluginItem*> m_plugins;
 	};
 }
 

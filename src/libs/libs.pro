@@ -6,4 +6,4 @@ SUBDIRS += utils \
            core
 
 
-TRANSLATIONS = ../../translations/kittyim_pl.ts
+TRANSLATIONS = ../../translations/kittyim_untranslated.ts ../../translations/kittyim_pl.ts

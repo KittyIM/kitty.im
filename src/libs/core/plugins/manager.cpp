@@ -1,5 +1,6 @@
 #include "manager.h"
 
+#include <plugins/pluginitem.h>
 #include <plugins/iplugin.h>
 #include <jsonsettings.h>
 
@@ -7,87 +8,77 @@
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
 
-static const char pluginsGroup[] = "plugins";
-static const char fileNameKey[]  = "fileName";
-static const char isEnabledKey[] = "isEnabled";
+static const char pluginsGroup[] = "Plugins";
 
 namespace Core
 {
 	PluginManager::PluginManager() :
-		m_pluginSettings(0)
+		m_settings(0)
 	{
 	}
 
 	void PluginManager::loadPlugins()
 	{
-		//create plugin list
-		QMap<QString, bool> pluginStates;
-		int count = m_pluginSettings->beginReadArray(pluginsGroup);
-		for(int i = 0; i < count; ++i) {
-			m_pluginSettings->setArrayIndex(i);
-
-			QString fileName = m_pluginSettings->value(fileNameKey).toString();
-			bool isEnabled = m_pluginSettings->value(isEnabledKey).toBool();
-
-			pluginStates.insert(fileName, isEnabled);
+		foreach(PluginItem *plugin, m_plugins) {
+			plugin->setState(PluginItem::Loaded);
 		}
-		m_pluginSettings->endArray();
 
-		//load plugins
-		foreach(const QString &pluginPath, m_pluginPaths) {
-			foreach(const QFileInfo &fileInfo, QDir(pluginPath).entryInfoList(QDir::Files)) {
-				if(QLibrary::isLibrary(fileInfo.absoluteFilePath()) && pluginStates.value(fileInfo.completeBaseName())) {
-					QPluginLoader loader(fileInfo.absoluteFilePath());
+		foreach(PluginItem *plugin, m_plugins) {
+			plugin->setState(PluginItem::Initialized);
+		}
 
-					if(!loader.load()) {
-						qDebug() << loader.errorString();
-						continue;
-					}
-
-					IPlugin *plugin = qobject_cast<IPlugin*>(loader.instance());
-					if(!plugin) {
-						qDebug() << "Can't cast to IPlugin";
-						loader.unload();
-						continue;
-					}
-
-					m_plugins.append(plugin);
-				}
-			}
+		foreach(PluginItem *plugin, m_plugins) {
+			plugin->setState(PluginItem::Running);
 		}
 	}
 
-	bool PluginManager::hasNewPlugins() const
+	bool PluginManager::scanForPlugins()
 	{
-		if(!m_pluginSettings)
+		if(!m_settings)
 			return false;
 
-		//create plugin list
-		QStringList pluginFiles;
+		QMap<QString, bool> knownPlugins;
+		m_settings->beginGroup(pluginsGroup);
+		foreach(const QString &pluginName, m_settings->childKeys()) {
+			bool isEnabled = m_settings->value(pluginName).toBool();
+			knownPlugins.insert(pluginName, isEnabled);
+		}
+		m_settings->endGroup();
+
+		bool unknownPlugins = false;
 		foreach(const QString &pluginPath, m_pluginPaths) {
 			foreach(const QFileInfo &fileInfo, QDir(pluginPath).entryInfoList(QDir::Files)) {
-				if(QLibrary::isLibrary(fileInfo.absoluteFilePath())) {
-					pluginFiles << fileInfo.completeBaseName();
+				QString filePath = fileInfo.absoluteFilePath();
+
+				if(QLibrary::isLibrary(filePath)) {
+					QString fileName = fileInfo.completeBaseName();
+
+					PluginItem *pluginItem = new PluginItem(filePath);
+
+					if(knownPlugins.contains(fileName)) {
+						pluginItem->setEnabled(knownPlugins.value(fileName));
+					} else {
+						unknownPlugins = true;
+					}
+
+					m_plugins << pluginItem;
 				}
 			}
 		}
 
-		//remove known plugins
-		int count = m_pluginSettings->beginReadArray(pluginsGroup);
-		for(int i = 0; i < count; ++i) {
-			m_pluginSettings->setArrayIndex(i);
-
-			QString fileName = m_pluginSettings->value(fileNameKey).toString();
-			pluginFiles.removeAll(fileName);
-		}
-		m_pluginSettings->endArray();
-
-		return (pluginFiles.count() > 0);
+		return unknownPlugins;
 	}
 
-	QList<IPlugin *> PluginManager::plugins() const
+	QList<PluginItem*> PluginManager::plugins() const
 	{
 		return m_plugins;
+	}
+
+	void PluginManager::aboutToClose()
+	{
+		foreach(PluginItem *plugin, m_plugins) {
+			plugin->setState(PluginItem::Stopped);
+		}
 	}
 
 }
