@@ -56,11 +56,11 @@ QString Json::stringify(const QVariant &variant, int indent)
 	QString res;
 
 	if((variant.type() == QVariant::List) || (variant.type() == QVariant::StringList)) {
-		res = QString(" ").repeated(indent) + "[\n";
+		res = QString("\t").repeated(indent) + "[\n";
 
 		QList<QVariant> list = variant.toList();
 		foreach(QVariant var, list) {
-			res += stringify(var, indent + 2);
+			res += stringify(var, indent + 1);
 
 			if(list.indexOf(var) < list.size() - 1) {
 				res += ",";
@@ -69,21 +69,21 @@ QString Json::stringify(const QVariant &variant, int indent)
 			res += "\n";
 		}
 
-		res += QString(" ").repeated(indent) + "]";
+		res += QString("\t").repeated(indent) + "]";
 	} else if(variant.type() == QVariant::Map) {
-		res = QString(" ").repeated(indent) + "{\n";
+		res = QString("\t").repeated(indent) + "{\n";
 
 		QMapIterator<QString, QVariant> it(variant.toMap());
 		while(it.hasNext()) {
 			it.next();
 
-			res += QString(" ").repeated(indent + 2) + "\"" + escape(it.key()) + "\": ";
+			res += QString("\t").repeated(indent + 1) + "\"" + escape(it.key()) + "\": ";
 
 			if(it.value().type() == QVariant::Map || it.value().type() == QVariant::List) {
 				res += "\n";
 			}
 
-			res += stringify(it.value(), indent + 2);
+			res += stringify(it.value(), indent + 1);
 
 			if(it.hasNext()) {
 				res += ",";
@@ -92,7 +92,7 @@ QString Json::stringify(const QVariant &variant, int indent)
 			res += "\n";
 		}
 
-		res += QString(" ").repeated(indent) + "}";
+		res += QString("\t").repeated(indent) + "}";
 	} else if((variant.type() == QVariant::String) || (variant.type() == QVariant::ByteArray)) {
 		res = "\"" + escape(variant) + "\"";
 	} else if((variant.type() == QVariant::Double) || ((int)variant.type() == (int)QMetaType::Float)) {
