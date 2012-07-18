@@ -9,10 +9,26 @@ namespace Im
 {
 	Plugin::Plugin()
 	{
-		m_info->setAuthor("arturo182");
-		m_info->setName(tr("Internet Messaging"));
-		m_info->setWebsite("http://www.arturpacholec.pl/");
-		m_info->setVersion("0.1");
+	}
+
+	QString Plugin::name() const
+	{
+		return tr("Instant Messaging");
+	}
+
+	QString Plugin::version() const
+	{
+		return "0.0.1";
+	}
+
+	QString Plugin::author() const
+	{
+		return "arturo182";
+	}
+
+	QString Plugin::website() const
+	{
+		return "http://www.arturpacholec.pl/";
 	}
 
 	bool Plugin::initialize(QString *errorString)

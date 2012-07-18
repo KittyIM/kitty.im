@@ -4,7 +4,6 @@
 #include <QtCore/QObject>
 
 #include "../core_global.h"
-#include "plugininfo.h"
 
 namespace Core
 {
@@ -13,18 +12,16 @@ namespace Core
 		Q_OBJECT
 
 		public:
-			IPlugin() :
-				m_info(new PluginInfo(this))
-			{ }
+			IPlugin() { }
+
+			virtual QString name() const = 0;
+			virtual QString version() const = 0;
+			virtual QString author() const = 0;
+			virtual QString website() const = 0;
 
 			virtual bool initialize(QString *errorString) = 0;
 			virtual void pluginsInitialized() { }
-			virtual void aboutToClose() {  }
-
-			PluginInfo *info() const { return m_info; }
-
-		protected:
-			PluginInfo *m_info;
+			virtual void aboutToClose() { }
 	};
 }
 

@@ -81,33 +81,33 @@ namespace Core
 
 	QString PluginItem::author() const
 	{
-		if(!m_iplugin || !m_iplugin->info())
+		if(!m_iplugin)
 			return "";
 
-		return m_iplugin->info()->author();
+		return m_iplugin->author();
 	}
 
 	QString PluginItem::name() const
 	{
-		if(!m_iplugin || !m_iplugin->info())
+		if(!m_iplugin)
 			return "";
 
-		return m_iplugin->info()->name();
+		return m_iplugin->name();
 	}
 
 	QString PluginItem::website() const
 	{
-		if(!m_iplugin || !m_iplugin->info())
+		if(!m_iplugin)
 			return "";
 
-		return m_iplugin->info()->website();
+		return m_iplugin->website();
 	}
 
 	QString PluginItem::version() const
 	{
-		if(!m_iplugin || !m_iplugin->info())
+		if(!m_iplugin)
 			return "";
 
-		return m_iplugin->info()->version();
+		return m_iplugin->version();
 	}
 }

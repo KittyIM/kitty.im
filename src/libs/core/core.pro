@@ -20,7 +20,6 @@ SOURCES     += profiles/profilemanager.cpp \
 
 HEADERS     += profiles/profilemanager.h \
                profiles/profiledialog.h \
-               plugins/plugininfo.h \
                plugins/manager.h \
                plugins/iplugin.h \
                tabs/tabmanager.h \
@@ -29,7 +28,8 @@ HEADERS     += profiles/profilemanager.h \
                core_constants.h \
                core_global.h \
     mainwindow.h \
-    plugins/pluginitem.h
+    plugins/pluginitem.h \
+    tabs/itab.h
 
 INCLUDEPATH += $$PWD
 

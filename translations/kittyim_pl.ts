@@ -2,13 +2,6 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="pl_PL">
 <context>
-    <name>Core::MainWindow</name>
-    <message>
-        <source>fuck yeah</source>
-        <translation type="obsolete">no kurwa</translation>
-    </message>
-</context>
-<context>
     <name>Core::PluginItem</name>
     <message>
         <location filename="../src/libs/core/plugins/pluginitem.cpp" line="50"/>

@@ -14,6 +14,11 @@ namespace Im
 		public:
 			Plugin();
 
+			QString name() const;
+			QString version() const;
+			QString author() const;
+			QString website() const;
+
 			bool initialize(QString *errorString);
 			void pluginsInitialized();
 			void aboutToClose();

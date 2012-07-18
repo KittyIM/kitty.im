@@ -4,13 +4,9 @@
 <context>
     <name>Im::Plugin</name>
     <message>
-        <location filename="../plugin.cpp" line="13"/>
-        <source>Internet Messaging</source>
+        <location filename="../plugin.cpp" line="16"/>
+        <source>Instant Messaging</source>
         <translation>Komunikator</translation>
-    </message>
-    <message>
-        <source>hello world</source>
-        <translation type="obsolete">witaj świecie</translation>
     </message>
 </context>
 </TS>
