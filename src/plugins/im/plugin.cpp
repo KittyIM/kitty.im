@@ -1,9 +1,14 @@
 #include "plugin.h"
 
+#include <core/modes/modemanager.h>
+#include <core/modes/imode.h>
+
 #include <QtCore/QTranslator>
 #include <QtCore/QtPlugin>
 #include <QtCore/QDebug>
 #include <QtGui/QApplication>
+#include <QtGui/QPushButton>
+#include <QTreeWidget>
 
 namespace Im
 {

@@ -9,7 +9,8 @@ namespace Core
 {
 	class ProfileManager;
 	class JsonSettings;
-	class TabManager;
+	class ModeManager;
+	class ModeWidget;
 
 	class CORE_EXPORT MainWindow : public QMainWindow
 	{
@@ -41,8 +42,8 @@ namespace Core
 			static MainWindow *m_instance;
 			JsonSettings *m_settings;
 			ProfileManager *m_profileManager;
-			TabManager *m_tabManager;
-			QTabWidget *m_tabWidget;
+			ModeManager *m_modeManager;
+			ModeWidget *m_modeWidget;
 	};
 
 }
