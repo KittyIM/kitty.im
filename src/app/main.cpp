@@ -30,33 +30,11 @@ int main(int argc, char *argv[])
 		profilePath = app.applicationDirPath() + "/profiles";
 	}
 
-	Core::ProfileManager profileManager;
-	profileManager.setProfilePath(profilePath);
+	Core::ProfileManager profileManager(profilePath);
 
-	QString profileName;
-	if(profileManager.count() > 0) {
-		QString argumentProfile = argumentParser.value("profile");
-
-		if(!argumentProfile.isEmpty()) {
-			if(profileManager.exists(argumentProfile)) {
-				if(!profileManager.hasPassword(argumentProfile) ||
-					profileManager.checkPassword(argumentProfile, argumentParser.value("password"))
-				) {
-					profileName = argumentProfile;
-				}
-			}
-		} else if(profileManager.count() == 1) {
-			QString onlyProfile = profileManager.profiles().first();
-
-			if(!profileManager.hasPassword(onlyProfile)) {
-				profileName = onlyProfile;
-			}
-		}
-	}
-
+	QString profileName = profileManager.profileFromArgumentParser(&argumentParser);
 	if(profileName.isEmpty()) {
-		Core::ProfileDialog dlg;
-		dlg.setProfileManager(&profileManager);
+		Core::ProfileDialog dlg(&profileManager);
 
 		if(dlg.exec()) {
 			profileName = dlg.profileName();
@@ -111,8 +89,7 @@ int main(int argc, char *argv[])
 	QStringList pluginPaths;
 	pluginPaths << app.applicationDirPath() + "/plugins";
 
-	Core::PluginManager pluginManager;
-	pluginManager.setPluginPaths(pluginPaths);
+	Core::PluginManager pluginManager(pluginPaths);
 	pluginManager.setSettings(&settings);
 
 	if(pluginManager.scanForPlugins()) {

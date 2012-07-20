@@ -21,11 +21,10 @@ namespace Core
 		Q_OBJECT
 
 		public:
-			explicit ProfileDialog(QWidget *parent = 0);
+			ProfileDialog(ProfileManager *profileManager, QWidget *parent = 0);
 			~ProfileDialog();
 
 			ProfileManager *profileManager() const { return m_profileManager; }
-			void setProfileManager(ProfileManager *profileManager) { m_profileManager = profileManager; }
 
 			QString profileName() const { return m_profileName; }
 

@@ -30,6 +30,17 @@ namespace Core
 			case Running:
 				runPlugin();
 			break;
+
+			case Stopped:
+				stopPlugin();
+			break;
+
+			case Unloaded:
+				unloadPlugin();
+			break;
+
+			default:
+				break;
 		}
 	}
 
@@ -77,6 +88,26 @@ namespace Core
 
 		m_iplugin->pluginsInitialized();
 		m_state = Running;
+	}
+
+	void PluginItem::stopPlugin()
+	{
+		if(hasError() || !m_iplugin)
+			return;
+
+		m_iplugin->aboutToClose();
+		m_state = Running;
+	}
+
+	void PluginItem::unloadPlugin()
+	{
+		if(!m_iplugin)
+			return;
+
+		delete m_iplugin;
+		m_iplugin = 0;
+
+		m_state = Unloaded;
 	}
 
 	QString PluginItem::author() const

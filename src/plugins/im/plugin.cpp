@@ -9,6 +9,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QPushButton>
 #include <QTreeWidget>
+#include <QLabel>
 
 namespace Im
 {
@@ -38,7 +39,7 @@ namespace Im
 
 	bool Plugin::initialize(QString *errorString)
 	{
-		qDebug() << "Im::initialize";
+		//qDebug() << "Im::initialize";
 
 		//TODO
 		const QString locale = qApp->property("kittyim_locale").toString();
@@ -51,12 +52,46 @@ namespace Im
 				qApp->installTranslator(translator);
 		}
 
+		Core::ModeManager *modeManager = Core::ModeManager::instance();
+
+		QPushButton *quitButton = new QPushButton();
+		quitButton->setText("quit");
+		connect(quitButton, SIGNAL(clicked()), qApp, SLOT(quit()));
+
+		QTreeWidget *treeWidget = new QTreeWidget();
+		treeWidget->setFrameStyle(QFrame::NoFrame);
+
+		Core::IMode *imMode = new Core::IMode("Mode.Im");
+		imMode->setLabel("IM");
+		imMode->setIcon(QIcon("E:/Pictures/Ikony/Pastel/32/user-comment.png"));
+		imMode->setWidget(treeWidget);
+		modeManager->addMode(imMode);
+
+		Core::IMode *emailMode = new Core::IMode("Mode.Email");
+		emailMode->setLabel("Email");
+		emailMode->setEnabled(false);
+		emailMode->setIcon(QIcon("E:/Pictures/Ikony/Pastel/32/email.png"));
+		emailMode->setWidget(new QLabel);
+		modeManager->addMode(emailMode);
+
+		Core::IMode *twitterMode = new Core::IMode("Mode.Twitter");
+		twitterMode->setLabel("Twitter");
+		twitterMode->setIcon(QIcon("C:/Users/arturo182/Downloads/twitter.png"));
+		twitterMode->setWidget(quitButton);
+		modeManager->addMode(twitterMode);
+
+		Core::IMode *facebookMode = new Core::IMode("Mode.Facebook");
+		facebookMode->setLabel("Facebook");
+		facebookMode->setIcon(QIcon("C:/Users/arturo182/Downloads/facebook.png"));
+		facebookMode->setWidget(new QLabel("Facebook!"));
+		modeManager->addMode(facebookMode);
+
 		return true;
 	}
 
 	void Plugin::pluginsInitialized()
 	{
-		qDebug() << "Im::pluginInitialized";
+		//qDebug() << "Im::pluginInitialized";
 	}
 
 	void Plugin::aboutToClose()

@@ -14,10 +14,10 @@
 
 namespace Core
 {
-	ProfileDialog::ProfileDialog(QWidget *parent) :
+	ProfileDialog::ProfileDialog(ProfileManager *profileManager, QWidget *parent) :
 		QDialog(parent),
 		m_ui(new Ui::ProfileDialog),
-		m_profileManager(0)
+		m_profileManager(profileManager)
 	{
 		m_ui->setupUi(this);
 		m_ui->passwordEdit->hide();

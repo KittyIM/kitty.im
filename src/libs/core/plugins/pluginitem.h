@@ -19,7 +19,7 @@ namespace Core
 				Initialized,
 				Running,
 				Stopped,
-				Deinitialized
+				Unloaded
 			};
 
 		public:
@@ -46,6 +46,8 @@ namespace Core
 			void loadPlugin();
 			void initializePlugin();
 			void runPlugin();
+			void stopPlugin();
+			void unloadPlugin();
 
 		private:
 			IPlugin *m_iplugin;

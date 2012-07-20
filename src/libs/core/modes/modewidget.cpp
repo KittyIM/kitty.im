@@ -5,6 +5,7 @@
 
 #include <QStackedLayout>
 #include <QHBoxLayout>
+#include <QDebug>
 
 namespace Core
 {
@@ -14,6 +15,7 @@ namespace Core
 		m_stackedLayout(new QStackedLayout)
 	{
 		connect(m_tabBar, SIGNAL(currentIndexChanged(int)), m_stackedLayout, SLOT(setCurrentIndex(int)));
+		connect(m_tabBar, SIGNAL(currentIndexChanged(int)), SIGNAL(currentIndexChanged(int)));
 
 		QHBoxLayout *layout = new QHBoxLayout(this);
 		layout->setMargin(0);
@@ -34,6 +36,11 @@ namespace Core
 	int ModeWidget::count() const
 	{
 		return m_tabBar->count();
+	}
+
+	int ModeWidget::currentIndex() const
+	{
+		return m_tabBar->currentIndex();
 	}
 
 }

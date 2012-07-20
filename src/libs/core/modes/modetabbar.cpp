@@ -17,7 +17,7 @@ namespace Core
 		m_hoverIndex(-1)
 	{
 		setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
-		//setMinimumWidth(60);
+		setMinimumWidth(60);
 		setMouseTracking(true);
 	}
 
@@ -68,7 +68,6 @@ namespace Core
 	void ModeTabBar::paintEvent(QPaintEvent *event)
 	{
 		QPainter p(this);
-		//p.translate(0, 2);
 
 		QLinearGradient bgGrad(rect().topLeft(), rect().topRight());
 		bgGrad.setColorAt(0.5, palette().color(QPalette::Window));
@@ -96,6 +95,10 @@ namespace Core
 			bool isSelected = (i == m_currentIndex);
 			bool isEnabled = isTabEnabled(i);
 			bool isHovered = (i == m_hoverIndex);
+
+			if(isHovered && isEnabled) {
+				p.fillRect(rect.adjusted(0, 0, -1, 0), QColor(0, 0, 0, 24));
+			}
 
 			if(isSelected) {
 				p.save();
@@ -125,9 +128,6 @@ namespace Core
 				p.restore();
 			}
 
-			if(isHovered && isEnabled) {
-				p.fillRect(rect.adjusted(0, 0, -1, 0), QColor(0, 0, 0, 16));
-			}
 
 			if(!isEnabled)
 				p.setOpacity(0.6);
@@ -214,6 +214,7 @@ namespace Core
 
 		m_currentIndex = currentIndex;
 		update();
+
 		emit currentIndexChanged(currentIndex);
 	}
 

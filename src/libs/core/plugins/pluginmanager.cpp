@@ -7,14 +7,17 @@
 #include <QtCore/QPluginLoader>
 #include <QtCore/QDebug>
 #include <QtCore/QDir>
+#include <QtGui/QApplication>
 
 static const char pluginsGroup[] = "Plugins";
 
 namespace Core
 {
-	PluginManager::PluginManager() :
+	PluginManager::PluginManager(const QStringList &pluginPaths) :
+		m_pluginPaths(pluginPaths),
 		m_settings(0)
 	{
+		connect(qApp, SIGNAL(aboutToQuit()), SLOT(aboutToClose()));
 	}
 
 	void PluginManager::loadPlugins()
@@ -26,6 +29,8 @@ namespace Core
 		foreach(PluginItem *plugin, m_plugins) {
 			plugin->setState(PluginItem::Initialized);
 		}
+
+		emit pluginsInitialized();
 
 		foreach(PluginItem *plugin, m_plugins) {
 			plugin->setState(PluginItem::Running);

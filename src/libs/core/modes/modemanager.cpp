@@ -7,8 +7,9 @@
 #include <modes/modewidget.h>
 #include <jsonsettings.h>
 #include <modes/imode.h>
+#include <mainwindow.h>
 
-static const char tabsGroup[] = "Tabs";
+static const char modesGroup[] = "Modes";
 
 namespace Core
 {
@@ -34,21 +35,38 @@ namespace Core
 
 	void ModeManager::readSettings(JsonSettings *settings)
 	{
-		settings->beginGroup(tabsGroup);
+		settings->beginGroup(modesGroup);
 		settings->endGroup();
 	}
 
 	void ModeManager::writeSettings(JsonSettings *settings)
 	{
-		settings->beginGroup(tabsGroup);
+		settings->beginGroup(modesGroup);
 		settings->endGroup();
 	}
 
-	void ModeManager::analyze()
+	IMode *ModeManager::currentMode()
 	{
-		for(int i = 0; i < m_modeWidget->count(); ++i) {
-			//qDebug() << i << m_modeWidget->widget(i)->windowTitle();
-		}
+		const int idx = m_modeWidget->currentIndex();
+
+		if(idx < 0)
+			return 0;
+
+		return m_modes[idx];
+	}
+
+	void ModeManager::setModeWidget(ModeWidget *modeWidget)
+	{
+		 m_modeWidget = modeWidget;
+		 connect(m_modeWidget, SIGNAL(currentIndexChanged(int)), SLOT(setCurrentIndex(int)));
+	}
+
+	void ModeManager::setCurrentIndex(const int &index)
+	{
+		if((index < 0) || (index > m_modes.count() - 1))
+			return;
+
+		emit currentModeChanged(m_modes[index]);
 	}
 
 	ModeManager *ModeManager::instance()

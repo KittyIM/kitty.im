@@ -21,6 +21,11 @@ namespace Core
 
 			int count() const;
 
+			int currentIndex() const;
+
+		signals:
+			void currentIndexChanged(const int &index);
+
 		private:
 			ModeTabBar *m_tabBar;
 			QStackedLayout* m_stackedLayout;

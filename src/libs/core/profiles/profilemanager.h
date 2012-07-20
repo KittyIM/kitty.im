@@ -5,15 +5,18 @@
 
 namespace Core
 {
+	class ArgumentParser;
+
 	class CORE_EXPORT ProfileManager : public QObject
 	{
 		Q_OBJECT
 
 		public:
-			ProfileManager()
-			{ }
+			ProfileManager(const QString &profilePath);
 
 			QStringList profiles() const;
+
+			QString profileFromArgumentParser(ArgumentParser *argumentParser) const;
 
 			int count() const;
 			bool exists(const QString &profileName) const;
@@ -22,7 +25,6 @@ namespace Core
 			bool checkPassword(const QString &profileName, const QString &password) const;
 
 			QString profilePath(const QString &profileName) const;
-			void setProfilePath(const QString &profilePath) { m_profilePath = profilePath; }
 
 		private:
 			QString m_profilePath;

@@ -24,11 +24,16 @@ namespace Core
 			void readSettings(JsonSettings *settings);
 			void writeSettings(JsonSettings *settings);
 
-			ModeWidget *modeWidget() { return m_modeWidget; }
-			void setModeWidget(ModeWidget *modeWidget) { m_modeWidget = modeWidget; }
+			IMode *currentMode();
 
-		public slots:
-			void analyze();
+			ModeWidget *modeWidget() { return m_modeWidget; }
+			void setModeWidget(ModeWidget *modeWidget);
+
+		signals:
+			void currentModeChanged(IMode *mode);
+
+		private slots:
+			void setCurrentIndex(const int &index);
 
 		private:
 			static ModeManager *m_instance;
