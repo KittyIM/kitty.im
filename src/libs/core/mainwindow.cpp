@@ -56,6 +56,11 @@ namespace Core
 		m_settings->endGroup();
 	}
 
+	QString MainWindow::uiLocale() const
+	{
+		return qApp->property("kittyim_locale").toString();
+	}
+
 	void MainWindow::aboutToClose()
 	{
 		writeSettings();

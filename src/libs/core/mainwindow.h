@@ -25,6 +25,8 @@ namespace Core
 
 			void init();
 
+			QString uiLocale() const;
+
 			void setSettings(JsonSettings *settings) { m_settings = settings; }
 			JsonSettings *settings() { return m_settings; }
 

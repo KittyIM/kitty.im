@@ -2,6 +2,7 @@
 
 #include <core/modes/modemanager.h>
 #include <core/modes/imode.h>
+#include <core/mainwindow.h>
 
 #include <QtCore/QTranslator>
 #include <QtCore/QtPlugin>
@@ -42,7 +43,7 @@ namespace Im
 		//qDebug() << "Im::initialize";
 
 		//TODO
-		const QString locale = qApp->property("kittyim_locale").toString();
+		const QString locale = Core::MainWindow::instance()->uiLocale();
 		if(!locale.isEmpty()) {
 			QTranslator *translator = new QTranslator(this);
 			const QString translationPath = qApp->applicationDirPath() + "/translations";
