@@ -18,7 +18,8 @@ SOURCES     += profiles/profilemanager.cpp \
                modes/modetabbar.cpp \
                argumentparser.cpp \
                jsonsettings.cpp \
-               mainwindow.cpp
+               mainwindow.cpp \
+    actions/actionmanager.cpp
 
 HEADERS     += profiles/profilemanager.h \
                profiles/profiledialog.h \
@@ -33,7 +34,8 @@ HEADERS     += profiles/profilemanager.h \
                core_constants.h \
                jsonsettings.h \
                core_global.h \
-               mainwindow.h
+               mainwindow.h \
+    actions/actionmanager.h
 
 INCLUDEPATH += $$PWD
 
