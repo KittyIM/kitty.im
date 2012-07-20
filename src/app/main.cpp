@@ -5,8 +5,8 @@
 
 #include <core/profiles/profilemanager.h>
 #include <core/profiles/profiledialog.h>
+#include <core/plugins/pluginmanager.h>
 #include <core/plugins/pluginitem.h>
-#include <core/plugins/manager.h>
 #include <core/plugins/iplugin.h>
 #include <core/argumentparser.h>
 #include <core/jsonsettings.h>

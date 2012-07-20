@@ -1,5 +1,5 @@
-#ifndef CORE_MANAGER_H
-#define CORE_MANAGER_H
+#ifndef CORE_PLUGINMANAGER_H
+#define CORE_PLUGINMANAGER_H
 
 #include "../core_global.h"
 
@@ -37,4 +37,4 @@ namespace Core
 	};
 }
 
-#endif // CORE_MANAGER_H
+#endif // CORE_PLUGINMANAGER_H

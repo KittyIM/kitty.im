@@ -1,4 +1,4 @@
-#include "manager.h"
+#include "pluginmanager.h"
 
 #include <plugins/pluginitem.h>
 #include <plugins/iplugin.h>

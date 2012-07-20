@@ -11,29 +11,29 @@ DEFINES     += CORE_LIBRARY
 
 SOURCES     += profiles/profilemanager.cpp \
                profiles/profiledialog.cpp \
-               plugins/manager.cpp \
+               plugins/pluginmanager.cpp \
+               plugins/pluginitem.cpp \
+               modes/modemanager.cpp \
+               modes/modewidget.cpp \
+               modes/modetabbar.cpp \
                argumentparser.cpp \
                jsonsettings.cpp \
-    mainwindow.cpp \
-    plugins/pluginitem.cpp \
-    modes/modemanager.cpp \
-    modes/modewidget.cpp \
-    modes/modetabbar.cpp
+               mainwindow.cpp
 
 HEADERS     += profiles/profilemanager.h \
                profiles/profiledialog.h \
-               plugins/manager.h \
+               plugins/pluginmanager.h \
+               plugins/pluginitem.h \
                plugins/iplugin.h \
+               modes/modemanager.h \
+               modes/modewidget.h \
+               modes/modetabbar.h \
+               modes/imode.h \
                argumentparser.h \
-               jsonsettings.h \
                core_constants.h \
+               jsonsettings.h \
                core_global.h \
-    mainwindow.h \
-    plugins/pluginitem.h \
-    modes/imode.h \
-    modes/modemanager.h \
-    modes/modewidget.h \
-    modes/modetabbar.h
+               mainwindow.h
 
 INCLUDEPATH += $$PWD
 
