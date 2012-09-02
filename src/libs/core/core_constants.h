@@ -12,6 +12,7 @@ namespace Core
 		const char IMAGE_KITYLOGO[]		= ":/core/images/logo.png";
 
 		//icons
+		const char ICON_KITTY[]			= "Icon.Kitty";
 		const char ICON_SETTINGS[]		= "Icon.Settings";
 		const char ICON_CLOSE[]			= "Icon.Close";
 

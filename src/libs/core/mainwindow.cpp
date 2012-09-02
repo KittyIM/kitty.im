@@ -12,6 +12,7 @@
 #include <icons/iconmanager.h>
 #include <modes/modewidget.h>
 #include <core_constants.h>
+#include <trayicon.h>
 #include <icore.h>
 
 #include <QApplication>
@@ -32,6 +33,7 @@ namespace Core
 	MainWindow::MainWindow(QSettings *settings, ProfileManager *profileManager) :
 		m_iCore(new ICore()),
 		m_settings(settings),
+		m_trayIcon(new TrayIcon),
 		m_profileManager(profileManager),
 		m_actionManager(new ActionManager(this)),
 		m_iconManager(new IconManager),
@@ -40,6 +42,7 @@ namespace Core
 	{
 		m_instance = this;
 		m_modeManager->setModeWidget(m_modeWidget);
+		m_trayIcon->setToolTip(QString("kitty.im v%1").arg(Constants::VERSION));
 
 		connect(qApp, SIGNAL(aboutToQuit()), SLOT(aboutToClose()));
 
@@ -61,8 +64,11 @@ namespace Core
 		delete m_modeWidget;
 		m_modeWidget = 0;
 
+		delete m_trayIcon;
+		m_trayIcon = 0;
+
 		SettingsDialog::cleanup();
-		ConsoleDialog::cleanup();
+		ConsoleDialog::cleanup();		
 	}
 
 	void MainWindow::init()
@@ -71,10 +77,13 @@ namespace Core
 			return;
 
 		//icons
+		m_iconManager->registerDefault(Constants::ICON_KITTY, QPixmap(":/core/images/kitty_48.png"));
 		m_iconManager->registerDefault(Constants::ICON_SETTINGS, QPixmap(":/core/images/icons/wrench.png"));
 		//m_iconManager->registerDefault(Constants::ICON_CLOSE, QPixmap(":/"));
 
 		readSettings();
+
+		m_trayIcon->setIcon(Constants::ICON_KITTY);
 
 		m_settings->beginGroup(settingsGroup);
 		if(!m_settings->value(hideOnStartupKey).toBool())
@@ -135,6 +144,8 @@ namespace Core
 		if(qApp->property("restart").toBool()) {
 			QProcess::startDetached(qApp->applicationFilePath(), qApp->property("restartArguments").toStringList());
 		}
+
+		deleteLater();
 	}
 
 	void MainWindow::showConsoleDialog()

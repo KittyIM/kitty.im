@@ -14,6 +14,7 @@ namespace Core
 	class IconManager;
 	class ModeManager;
 	class ModeWidget;
+	class TrayIcon;
 	class ICore;
 
 	class MainWindow : public QMainWindow
@@ -45,6 +46,7 @@ namespace Core
 			static MainWindow *m_instance;
 			ICore *m_iCore;
 			QSettings *m_settings;
+			TrayIcon *m_trayIcon;
 			ProfileManager *m_profileManager;
 			ActionManager *m_actionManager;
 			IconManager *m_iconManager;

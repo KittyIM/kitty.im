@@ -14,7 +14,6 @@ namespace Core
 		m_iconManager(iconManager),
 		m_iconTree(new QTreeWidget)
 	{
-		qDebug() << "IconConsole()";
 		setText(tr("Icons"));
 
 		m_iconTree->setHeaderHidden(true);
@@ -30,8 +29,6 @@ namespace Core
 
 	IconConsole::~IconConsole()
 	{
-		qDebug() << "~IconConsole";
-
 		delete m_iconTree;
 		m_iconTree = 0;
 	}

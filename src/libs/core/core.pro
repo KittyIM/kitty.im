@@ -29,7 +29,8 @@ SOURCES     += profiles/profilemanager.cpp \
 			   console/commandconsole.cpp \
 			   icons/icontheme.cpp \
 			   icons/iconmanager.cpp \
-			   console/iconconsole.cpp
+			   console/iconconsole.cpp \
+    trayicon.cpp
 
 HEADERS     += profiles/profilemanager.h \
                profiles/profiledialog.h \
@@ -57,7 +58,8 @@ HEADERS     += profiles/profilemanager.h \
 			   console/commandconsole.h \
 			   icons/iconmanager.h \
 			   icons/icontheme.h \
-			   console/iconconsole.h
+			   console/iconconsole.h \
+    trayicon.h
 
 INCLUDEPATH += $$PWD
 
