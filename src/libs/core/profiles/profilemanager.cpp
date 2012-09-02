@@ -3,9 +3,9 @@
 #include <argumentparser.h>
 #include <jsonsettings.h>
 
-#include <QtCore/QCryptographicHash>
-#include <QtCore/QDebug>
-#include <QtCore/QDir>
+#include <QCryptographicHash>
+#include <QDebug>
+#include <QDir>
 
 const char passwordKey[] = "password";
 

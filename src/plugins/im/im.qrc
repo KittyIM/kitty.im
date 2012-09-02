@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/im">
+        <file>images/icons/mode.png</file>
+    </qresource>
+</RCC>

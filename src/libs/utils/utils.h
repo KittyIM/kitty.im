@@ -3,7 +3,7 @@
 
 #include "utils_global.h"
 
-#include <QtCore/QDir>
+#include <QDir>
 
 namespace Utils
 {

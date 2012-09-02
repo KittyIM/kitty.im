@@ -1,10 +1,12 @@
 #include "modetabbar.h"
 
+#include <icons/iconmanager.h>
 #include <modes/imode.h>
 
 #include <QMouseEvent>
 #include <QPainter>
 #include <QDebug>
+
 
 static const int tabPadding = 4;
 static const int iconSize = 32;
@@ -32,7 +34,7 @@ namespace Core
 		return m_tabs.count();
 	}
 
-	QIcon ModeTabBar::tabIcon(const int &index) const
+	QString ModeTabBar::tabIcon(const int &index) const
 	{
 		Q_ASSERT((index >= 0) && (index < count()));
 
@@ -68,6 +70,7 @@ namespace Core
 	void ModeTabBar::paintEvent(QPaintEvent *event)
 	{
 		QPainter p(this);
+		IconManager *iconManager = IconManager::instance();
 
 		QLinearGradient bgGrad(rect().topLeft(), rect().topRight());
 		bgGrad.setColorAt(0.5, palette().color(QPalette::Window));
@@ -128,13 +131,13 @@ namespace Core
 				p.restore();
 			}
 
-
 			if(!isEnabled)
 				p.setOpacity(0.6);
 
-			QPixmap icon = tabIcon(i).pixmap(iconSize, iconSize, isEnabled ? QIcon::Normal : QIcon::Disabled);
+			QIcon icon(iconManager->icon(tabIcon(i)));
+			QPixmap pixmap = icon.pixmap(iconSize, iconSize, isEnabled ? QIcon::Normal : QIcon::Disabled);
 
-			p.drawPixmap(iconRect, icon);
+			p.drawPixmap(iconRect, pixmap);
 
 			p.setPen(palette().color(QPalette::Text));
 			p.drawText(labelRect, Qt::AlignCenter, tabLabel(i));

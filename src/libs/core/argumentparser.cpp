@@ -1,6 +1,6 @@
 #include "argumentparser.h"
 
-#include <QtCore/QStringList>
+#include <QStringList>
 
 namespace Core
 {

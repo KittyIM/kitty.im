@@ -1,8 +1,8 @@
 #ifndef CORE_IMODE_H
 #define CORE_IMODE_H
 
-#include <QtCore/QObject>
-#include <QtGui/QIcon>
+#include <QObject>
+#include <QIcon>
 
 #include "../core_global.h"
 
@@ -31,9 +31,12 @@ namespace Core
 				emit labelChanged(label);
 			}
 
-			QIcon icon() const { return m_icon; }
-			void setIcon(const QIcon &icon)
+			QString icon() const { return m_icon; }
+			void setIcon(const QString &icon)
 			{
+				if(icon == m_icon)
+					return;
+
 				m_icon = icon;
 				emit iconChanged(icon);
 			}
@@ -53,13 +56,13 @@ namespace Core
 
 		signals:
 			void labelChanged(const QString &label);
-			void iconChanged(const QIcon &icon);
+			void iconChanged(const QString &icon);
 			void enabledChanged(const bool &enabled);
 
 		protected:
 			QString m_label;
 			QString m_id;
-			QIcon m_icon;
+			QString m_icon;
 			QWidget *m_widget;
 			bool m_enabled;
 	};

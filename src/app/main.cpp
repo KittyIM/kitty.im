@@ -1,16 +1,19 @@
-#include <QtCore/QTranslator>
-#include <QtCore/QDebug>
-#include <QtGui/QDesktopServices>
-#include <QtGui/QApplication>
+#include <QDesktopServices>
+#include <QApplication>
+#include <QMainWindow>
+#include <QTranslator>
+#include <QDebug>
 
 #include <core/profiles/profilemanager.h>
+#include <core/settings/settingsdialog.h>
 #include <core/profiles/profiledialog.h>
 #include <core/plugins/pluginmanager.h>
+#include <core/console/consoledialog.h>
 #include <core/plugins/pluginitem.h>
 #include <core/plugins/iplugin.h>
 #include <core/argumentparser.h>
 #include <core/jsonsettings.h>
-#include <core/mainwindow.h>
+#include <core/icore.h>
 
 static const char appGroup[] = "App";
 static const char languageKey[] = "language";
@@ -25,7 +28,7 @@ int main(int argc, char *argv[])
 	argumentParser.parseArguments(app.arguments());
 
 	//profile
-	QString profilePath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/profiles";
+    QString profilePath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/profiles";
 	if(argumentParser.contains("portable")) {
 		profilePath = app.applicationDirPath() + "/profiles";
 	}
@@ -44,7 +47,7 @@ int main(int argc, char *argv[])
 	}
 
 	//settings
-	const QString settingsPath = profileManager.profilePath(profileName) + "/settings.json";
+    const QString settingsPath = profileManager.profilePath(profileName) + "/settings.json";
 	Core::JsonSettings settings(settingsPath);
 
 	//translation
@@ -80,13 +83,10 @@ int main(int argc, char *argv[])
 	}
 
 	//mainwindow
-	Core::MainWindow mainWindow;
-	mainWindow.setSettings(&settings);
-	mainWindow.setProfileManager(&profileManager);
-	mainWindow.init();
+    Core::ICore::initMainWindow(&settings, &profileManager);
 
 	//plugins
-	QStringList pluginPaths;
+    QStringList pluginPaths;
 	pluginPaths << app.applicationDirPath() + "/plugins";
 
 	Core::PluginManager pluginManager(pluginPaths);
@@ -101,6 +101,10 @@ int main(int argc, char *argv[])
 
 	foreach(Core::PluginItem *plugin, pluginManager.plugins()) {
 		qDebug() << plugin->name();
+	}
+
+	if(argumentParser.contains("debug")) {
+		Core::ICore::showConsoleDialog(Core::ICore::mainWindow());
 	}
 
 	return app.exec();

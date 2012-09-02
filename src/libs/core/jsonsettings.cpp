@@ -2,10 +2,10 @@
 
 #include <3rdparty/json/json.h>
 
-#include <QtCore/QStringList>
-#include <QtCore/QPoint>
-#include <QtCore/QRect>
-#include <QtCore/QSize>
+#include <QStringList>
+#include <QPoint>
+#include <QRect>
+#include <QSize>
 
 namespace Core
 {

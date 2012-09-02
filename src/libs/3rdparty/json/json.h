@@ -8,8 +8,8 @@
 #ifndef JSON_H
 #define JSON_H
 
-#include <QtCore/QVariant>
-#include <QtCore/QString>
+#include <QVariant>
+#include <QString>
 
 class Json
 {

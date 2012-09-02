@@ -5,10 +5,35 @@ namespace Core
 {
 	namespace Constants
 	{
-		const char VERSION[]       = "0.0.1";
+		const char VERSION[]			= "0.0.1";
 
-		const char ICON_KITTY48[]  = ":/core/images/icons/kitty_48.png";
-		const char ICON_KITYLOGO[] = ":/core/images/logo.png";
+		//images
+		const char IMAGE_KITTY48[]		= ":/core/images/kitty_48.png";
+		const char IMAGE_KITYLOGO[]		= ":/core/images/logo.png";
+
+		//icons
+		const char ICON_SETTINGS[]		= "Icon.Settings";
+		const char ICON_CLOSE[]			= "Icon.Close";
+
+		//settings
+		const char SETTINGS_GENERAL[]    = "Setting.General";
+		const char SETTINGS_CONNECTION[] = "Setting.Connection";
+
+		//toolbars
+		const char TOOLBAR_MAIN[]		= "Toolbar.Main";
+		const char TOOLBAR_PLUGINS[]	= "Toolbar.Plugins";
+
+		//actions
+		const char ACTION_ABOUT[]		= "Action.About";
+		const char ACTION_CONSOLE[]		= "Action.Console";
+		const char ACTION_SETTINGS[]	= "Action.Settings";
+		const char ACTION_QUIT[]		= "Action.Quit";
+
+		//consoles
+		const char CONSOLE_ACTIONS[]	= "Console.Actions";
+		const char CONSOLE_COMMAND[]	= "Console.Command";
+		const char CONSOLE_DEBUG[]		= "Console.Debug";
+		const char CONSOLE_ICONS[]		= "Console.Icons";
 	}
 }
 

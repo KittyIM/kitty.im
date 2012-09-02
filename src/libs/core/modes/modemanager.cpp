@@ -1,8 +1,8 @@
 #include "modemanager.h"
 
-#include <QtCore/QDebug>
-#include <QtCore/QList>
-#include <QtGui/QTabWidget>
+#include <QTabWidget>
+#include <QDebug>
+#include <QList>
 
 #include <modes/modewidget.h>
 #include <jsonsettings.h>
@@ -22,6 +22,14 @@ namespace Core
 		m_instance = this;
 	}
 
+	ModeManager::~ModeManager()
+	{
+		qDeleteAll(m_modes);
+		m_modes.clear();
+
+		m_instance = 0;
+	}
+
 	void ModeManager::addMode(IMode *mode)
 	{
 		if(!m_modeWidget)
@@ -31,15 +39,18 @@ namespace Core
 
 		m_modes.insert(index, mode);
 		m_modeWidget->insertMode(index, mode);
+
+		emit modeAdded(mode->id());
+		emit modeListChanged();
 	}
 
-	void ModeManager::readSettings(JsonSettings *settings)
+	void ModeManager::readSettings(QSettings *settings)
 	{
 		settings->beginGroup(modesGroup);
 		settings->endGroup();
 	}
 
-	void ModeManager::writeSettings(JsonSettings *settings)
+	void ModeManager::writeSettings(QSettings *settings)
 	{
 		settings->beginGroup(modesGroup);
 		settings->endGroup();

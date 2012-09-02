@@ -1,8 +1,6 @@
 #ifndef CORE_IPLUGIN_H
 #define CORE_IPLUGIN_H
 
-#include <QtCore/QObject>
-
 #include "../core_global.h"
 
 namespace Core

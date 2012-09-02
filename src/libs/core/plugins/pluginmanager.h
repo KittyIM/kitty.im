@@ -3,7 +3,7 @@
 
 #include "../core_global.h"
 
-#include <QtCore/QStringList>
+#include <QStringList>
 
 namespace Core
 {

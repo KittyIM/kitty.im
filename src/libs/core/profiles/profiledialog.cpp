@@ -1,11 +1,11 @@
 #include "profiledialog.h"
 #include "ui_profiledialog.h"
 
-#include <QtCore/QDebug>
-#include <QtCore/QDir>
-#include <QtGui/QInputDialog>
-#include <QtGui/QMessageBox>
-#include <QtGui/QPainter>
+#include <QInputDialog>
+#include <QMessageBox>
+#include <QPainter>
+#include <QDebug>
+#include <QDir>
 
 #include <profiles/profilemanager.h>
 #include <3rdparty/qtwin/qtwin.h>
@@ -162,12 +162,12 @@ namespace Core
 			profileItem->setText(0, profileName);
 
 			QString avatarPath = m_profileManager->profilePath(profileName) + "/avatar.png";
-			profileItem->setIcon(0, QIcon(QFile::exists(avatarPath) ? avatarPath :  Constants::ICON_KITTY48));
+			profileItem->setIcon(0, QIcon(QFile::exists(avatarPath) ? avatarPath :  Constants::IMAGE_KITTY48));
 		}
 
 		QTreeWidgetItem *addProfileItem = new QTreeWidgetItem(m_ui->profileTree);
 		addProfileItem->setText(0, tr("Add profile..."));
-		addProfileItem->setIcon(0, QIcon(Constants::ICON_KITTY48));
+		addProfileItem->setIcon(0, QIcon(Constants::IMAGE_KITTY48));
 		addProfileItem->setData(0, Qt::UserRole, true);
 	}
 }

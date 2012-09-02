@@ -3,12 +3,17 @@
 
 #include "../core_global.h"
 
-#include <QtCore/QMap>
+#include <QToolBar>
+#include <QAction>
+#include <QDebug>
+#include <QHash>
+#include <QMenu>
+
+class QToolBar;
 
 namespace Core
 {
 	class JsonSettings;
-	class Action;
 
 	class CORE_EXPORT ActionManager : public QObject
 	{
@@ -18,16 +23,35 @@ namespace Core
 			static ActionManager *instance() { return m_instance; }
 
 		public:
-			ActionManager(QObject *parent = 0);
+			ActionManager(QMainWindow *mainWindow, QObject *parent = 0);
+			~ActionManager();
+
+			QToolBar *createToolBar(const QString &id);
+			QToolBar *toolBar(const QString &id);
+
+			void registerAction(const QString &id, QAction *action);
+			void unregisterAction(const QString &id);
+			QAction *action(const QString &id);
+
+			QStringList actionIds() const;
 
 			void readSettings(JsonSettings *settings);
 			void writeSettings(JsonSettings *settings);
+
+		public slots:
+			void refreshIcons();
+
+		signals:
+			void actionRegistered(const QString &id);
+			void actionListChanged();
 
 		private:
 			static ActionManager *m_instance;
 
 		private:
-			QMap<QString, Action*> m_actions;
+			QHash<QString, QAction*> m_actions;
+			QHash<QString, QToolBar*> m_toolBars;
+			QMainWindow *m_mainWindow;
 	};
 }
 

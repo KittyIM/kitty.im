@@ -3,7 +3,7 @@
 
 #include "../core_global.h"
 
-#include <QtGui/QDialog>
+#include <QDialog>
 
 class QTreeWidgetItem;
 

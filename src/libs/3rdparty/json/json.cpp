@@ -10,9 +10,8 @@
 
 QVariant Json::parse(const QString &json)
 {
-	bool success = true;
-
 	if(!json.isNull() || !json.isEmpty()) {
+		bool success = true;
 		int index = 0;
 		return parseValue(json, index, success);
 	}	else {

@@ -17,7 +17,7 @@ namespace Core
 			void insertTab(const int &index, IMode *mode);
 
 			int count() const;
-			QIcon tabIcon(const int &index) const;
+			QString tabIcon(const int &index) const;
 			QString tabLabel(const int &index) const;
 			bool isTabEnabled(const int &index) const;
 			QRect tabRect(const int &index) const;

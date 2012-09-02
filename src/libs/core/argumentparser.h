@@ -1,7 +1,7 @@
 #ifndef CORE_ARGUMENTPARSER_H
 #define CORE_ARGUMENTPARSER_H
 
-#include <QtCore/QMap>
+#include <QMap>
 
 #include "core_global.h"
 
@@ -13,7 +13,6 @@ namespace Core
 			ArgumentParser();
 
 			void parseArguments(const QStringList &arguments);
-
 			QString asCommandLine() const;
 	};
 }

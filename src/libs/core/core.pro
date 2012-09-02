@@ -19,7 +19,17 @@ SOURCES     += profiles/profilemanager.cpp \
                argumentparser.cpp \
                jsonsettings.cpp \
                mainwindow.cpp \
-    actions/actionmanager.cpp
+			   actions/actionmanager.cpp \
+			   settings/settingsdialog.cpp \
+			   settings/generalsettings.cpp \
+			   settings/connectionsettings.cpp \
+			   icore.cpp \
+			   console/consoledialog.cpp \
+			   console/debugconsole.cpp \
+			   console/commandconsole.cpp \
+			   icons/icontheme.cpp \
+			   icons/iconmanager.cpp \
+			   console/iconconsole.cpp
 
 HEADERS     += profiles/profilemanager.h \
                profiles/profiledialog.h \
@@ -35,10 +45,24 @@ HEADERS     += profiles/profilemanager.h \
                jsonsettings.h \
                core_global.h \
                mainwindow.h \
-    actions/actionmanager.h
+			   actions/actionmanager.h \
+			   settings/settingsdialog.h \
+			   settings/isettingspage.h \
+			   settings/generalsettings.h \
+			   settings/connectionsettings.h \
+			   icore.h \
+			   console/iconsoletab.h \
+			   console/consoledialog.h \
+			   console/debugconsole.h \
+			   console/commandconsole.h \
+			   icons/iconmanager.h \
+			   icons/icontheme.h \
+			   console/iconconsole.h
 
 INCLUDEPATH += $$PWD
 
-FORMS       += profiles/profiledialog.ui
+FORMS       += profiles/profiledialog.ui \
+			   settings/generalsettingswidget.ui \
+			   settings/connectionsettingswidget.ui
 
 RESOURCES   += core.qrc

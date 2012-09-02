@@ -1,7 +1,7 @@
 #ifndef CORE_MODEWIDGET_H
 #define CORE_MODEWIDGET_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
 
 class QStackedLayout;
 
@@ -20,7 +20,6 @@ namespace Core
 			void insertMode(const int &index, IMode *mode);
 
 			int count() const;
-
 			int currentIndex() const;
 
 		signals:

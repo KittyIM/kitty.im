@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/core">
-        <file>images/icons/kitty_48.png</file>
         <file>images/logo.png</file>
+        <file>images/kitty_48.png</file>
+        <file>images/icons/wrench.png</file>
     </qresource>
 </RCC>

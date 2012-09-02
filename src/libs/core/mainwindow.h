@@ -3,16 +3,20 @@
 
 #include "core_global.h"
 
-#include <QtGui/QMainWindow>
+#include <QMainWindow>
+
+class QSettings;
 
 namespace Core
 {
 	class ProfileManager;
-	class JsonSettings;
+	class ActionManager;
+	class IconManager;
 	class ModeManager;
 	class ModeWidget;
+	class ICore;
 
-	class CORE_EXPORT MainWindow : public QMainWindow
+	class MainWindow : public QMainWindow
 	{
 		Q_OBJECT
 
@@ -20,21 +24,18 @@ namespace Core
 			static MainWindow *instance();
 
 		public:
-			explicit MainWindow(QWidget *parent = 0);
+			MainWindow(QSettings *settings, ProfileManager *profileManager);
 			~MainWindow();
 
 			void init();
 
-			QString uiLocale() const;
-
-			void setSettings(JsonSettings *settings) { m_settings = settings; }
-			JsonSettings *settings() { return m_settings; }
-
-			void setProfileManager(ProfileManager *profileManager) { m_profileManager = profileManager; }
+			QSettings *settings() { return m_settings; }
 			ProfileManager *profileManager() { return m_profileManager; }
 
 		private slots:
 			void aboutToClose();
+			void showConsoleDialog();
+			void showSettingsDialog();
 
 		private:
 			void readSettings();
@@ -42,8 +43,11 @@ namespace Core
 
 		private:
 			static MainWindow *m_instance;
-			JsonSettings *m_settings;
+			ICore *m_iCore;
+			QSettings *m_settings;
 			ProfileManager *m_profileManager;
+			ActionManager *m_actionManager;
+			IconManager *m_iconManager;
 			ModeManager *m_modeManager;
 			ModeWidget *m_modeWidget;
 	};

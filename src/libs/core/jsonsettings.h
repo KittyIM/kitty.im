@@ -1,7 +1,7 @@
 #ifndef CORE_JSONSETTINGS_H
 #define CORE_JSONSETTINGS_H
 
-#include <QtCore/QSettings>
+#include <QSettings>
 
 #include "core_global.h"
 

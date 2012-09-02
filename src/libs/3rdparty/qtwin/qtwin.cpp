@@ -8,11 +8,12 @@
 ****************************************************************************/
 
 #include "qtwin.h"
-#include <QtCore/QPointer>
-#include <QtCore/QLibrary>
-#include <QtCore/QList>
-#include <QtGui/QApplication>
-#include <QtGui/QWidget>
+
+#include <QApplication>
+#include <QPointer>
+#include <QLibrary>
+#include <QWidget>
+#include <QList>
 
 #ifdef Q_WS_WIN
 

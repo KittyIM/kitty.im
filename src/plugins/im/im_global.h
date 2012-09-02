@@ -1,7 +1,7 @@
 #ifndef IM_GLOBAL_H
 #define IM_GLOBAL_H
 
-#include <QtCore/QObject>
+#include <QObject>
 
 #if defined(IM_LIBRARY)
 #  define IM_EXPORT Q_DECL_EXPORT

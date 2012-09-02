@@ -4,10 +4,10 @@
 #include <plugins/iplugin.h>
 #include <jsonsettings.h>
 
-#include <QtCore/QPluginLoader>
-#include <QtCore/QDebug>
-#include <QtCore/QDir>
-#include <QtGui/QApplication>
+#include <QPluginLoader>
+#include <QApplication>
+#include <QDebug>
+#include <QDir>
 
 static const char pluginsGroup[] = "Plugins";
 

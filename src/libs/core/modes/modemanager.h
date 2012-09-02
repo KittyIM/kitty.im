@@ -3,6 +3,8 @@
 
 #include "../core_global.h"
 
+class QSettings;
+
 namespace Core
 {
 	class JsonSettings;
@@ -18,11 +20,12 @@ namespace Core
 
 		public:
 			ModeManager();
+			~ModeManager();
 
 			void addMode(IMode *mode);
 
-			void readSettings(JsonSettings *settings);
-			void writeSettings(JsonSettings *settings);
+			void readSettings(QSettings *settings);
+			void writeSettings(QSettings *settings);
 
 			IMode *currentMode();
 
@@ -31,6 +34,8 @@ namespace Core
 
 		signals:
 			void currentModeChanged(IMode *mode);
+			void modeAdded(const QString &id);
+			void modeListChanged();
 
 		private slots:
 			void setCurrentIndex(const int &index);

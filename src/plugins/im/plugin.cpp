@@ -1,15 +1,16 @@
 #include "plugin.h"
 
+#include <core/icons/iconmanager.h>
 #include <core/modes/modemanager.h>
 #include <core/modes/imode.h>
-#include <core/mainwindow.h>
+#include <core/icore.h>
 
-#include <QtCore/QTranslator>
-#include <QtCore/QtPlugin>
-#include <QtCore/QDebug>
-#include <QtGui/QApplication>
-#include <QtGui/QPushButton>
+#include <QApplication>
+#include <QPushButton>
+#include <QTranslator>
 #include <QTreeWidget>
+#include <QtPlugin>
+#include <QDebug>
 #include <QLabel>
 
 namespace Im
@@ -42,8 +43,10 @@ namespace Im
 	{
 		//qDebug() << "Im::initialize";
 
-		//TODO
-		const QString locale = Core::MainWindow::instance()->uiLocale();
+		Core::IconManager *iconManager = Core::IconManager::instance();
+		iconManager->registerDefault("Im.Mode", QPixmap(":/im/images/icons/mode.png"));
+
+		const QString locale = Core::ICore::uiLocale();
 		if(!locale.isEmpty()) {
 			QTranslator *translator = new QTranslator(this);
 			const QString translationPath = qApp->applicationDirPath() + "/translations";
@@ -64,28 +67,10 @@ namespace Im
 
 		Core::IMode *imMode = new Core::IMode("Mode.Im");
 		imMode->setLabel("IM");
-		imMode->setIcon(QIcon("E:/Pictures/Ikony/Pastel/32/user-comment.png"));
+		imMode->setIcon("Im.Mode");
 		imMode->setWidget(treeWidget);
 		modeManager->addMode(imMode);
 
-		Core::IMode *emailMode = new Core::IMode("Mode.Email");
-		emailMode->setLabel("Email");
-		emailMode->setEnabled(false);
-		emailMode->setIcon(QIcon("E:/Pictures/Ikony/Pastel/32/email.png"));
-		emailMode->setWidget(new QLabel);
-		modeManager->addMode(emailMode);
-
-		Core::IMode *twitterMode = new Core::IMode("Mode.Twitter");
-		twitterMode->setLabel("Twitter");
-		twitterMode->setIcon(QIcon("C:/Users/arturo182/Downloads/twitter.png"));
-		twitterMode->setWidget(quitButton);
-		modeManager->addMode(twitterMode);
-
-		Core::IMode *facebookMode = new Core::IMode("Mode.Facebook");
-		facebookMode->setLabel("Facebook");
-		facebookMode->setIcon(QIcon("C:/Users/arturo182/Downloads/facebook.png"));
-		facebookMode->setWidget(new QLabel("Facebook!"));
-		modeManager->addMode(facebookMode);
 
 		return true;
 	}
