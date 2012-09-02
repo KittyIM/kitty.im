@@ -61,6 +61,7 @@ namespace Core
 		private:
 			void readSettings();
 			void writeSettings();
+			bool isObscured();
 
 		private:
 			static MainWindow *m_instance;

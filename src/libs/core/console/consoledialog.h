@@ -17,7 +17,7 @@ namespace Core
 		Q_OBJECT
 
 		public:
-			static ConsoleDialog *instance(QWidget *parent = 0);
+			static ConsoleDialog *instance();
 			static void addTab(IConsoleTab *tab);
 			static void cleanup();
 

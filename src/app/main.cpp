@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
 	}
 
 	if(argumentParser.contains("debug")) {
-		Core::ICore::showConsoleDialog(Core::ICore::mainWindow());
+		Core::ICore::showConsoleDialog();
 	}
 
 	return app.exec();

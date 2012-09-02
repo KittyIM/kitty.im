@@ -21,6 +21,10 @@
 #include <QProcess>
 #include <QDebug>
 
+#ifdef Q_WS_WIN32
+#include <qt_windows.h>
+#endif
+
 static const char settingsGroup[]			= "MainWindow";
 static const char geometryKey[]				= "windowGeometry";
 static const char hideOnStartupKey[]		= "hideOnStartup";
@@ -28,7 +32,7 @@ static const char toolWindowKey[]			= "isToolWindow";
 static const char stateKey[]				= "windowState";
 static const char alwaysOnTopKey[]			= "alwaysOnTop";
 static const char autoHideTimeKey[]			= "autoHideTime";
-static const char transparencyKey[]	= "transparency";
+static const char transparencyKey[]			= "transparency";
 static const char dockingKey[]				= "Docking/enabled";
 static const char dockingDistanceKey[]		= "Docking/distance";
 
@@ -225,16 +229,28 @@ namespace Core
 
 	void MainWindow::showConsoleDialog()
 	{
-		ICore::showConsoleDialog(this);
+		ICore::showConsoleDialog();
 	}
 
 	void MainWindow::showSettingsDialog()
 	{
-		ICore::showSettingsDialog(this);
+		ICore::showSettingsDialog();
 	}
 
 	void MainWindow::toggleWindow()
 	{
+		if(isVisible()) {
+			if(isObscured()) {
+				activateWindow();
+				raise();
+			} else {
+				hide();
+			}
+		} else {
+			show();
+			activateWindow();
+			raise();
+		}
 	}
 
 	void MainWindow::readSettings()
@@ -270,6 +286,41 @@ namespace Core
 		m_settings->endGroup();
 
 		m_modeManager->writeSettings(m_settings);
+	}
+
+	bool MainWindow::isObscured()
+	{
+#ifdef Q_WS_WIN32
+		QList<HWND> visited;
+
+		RECT rect;
+		GetWindowRect(winId(), &rect);
+
+		HWND hWnd = GetWindow(winId(), GW_HWNDPREV);
+		while(hWnd) {
+			if(visited.contains(hWnd)) {
+				break;
+			}
+
+			visited.append(hWnd);
+
+			if(IsWindowVisible(hWnd)) {
+				RECT rect2;
+
+				if(GetWindowRect(hWnd, &rect2)) {
+					RECT intersect;
+
+					if(IntersectRect(&intersect, &rect, &rect2)) {
+						return true;
+					}
+				}
+			}
+
+			hWnd = GetWindow(hWnd, GW_HWNDPREV);
+		}
+#endif
+
+		return false;
 	}
 
 	MainWindow *MainWindow::instance()

@@ -20,7 +20,7 @@ namespace Core
 		Q_OBJECT
 
 		public:
-			static SettingsDialog *instance(QWidget *parent = 0);
+			static SettingsDialog *instance();
 			static void addPage(ISettingsPage *page);
 			static void cleanup();
 
@@ -33,7 +33,7 @@ namespace Core
 			void apply();
 
 		private:
-			SettingsDialog(QWidget *parent);
+			SettingsDialog(QWidget *parent = 0);
 			~SettingsDialog();
 
 			void readSettings();

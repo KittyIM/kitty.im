@@ -20,8 +20,8 @@ namespace Core
 
 		public:
 			static void initMainWindow(QSettings *settings, ProfileManager *profileManager);
-			static void showConsoleDialog(QWidget *parent = 0);
-			static void showSettingsDialog(QWidget *parent = 0);
+			static void showConsoleDialog();
+			static void showSettingsDialog(const QString &currentPage = QString());
 
 			static QString uiLocale();
 			static QSettings *settings();

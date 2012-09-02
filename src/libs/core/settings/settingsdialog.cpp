@@ -29,6 +29,7 @@ namespace Core
 		m_categoryTree(new QTreeWidget)
 	{
 		setMinimumSize(400, 200);
+		setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 		setWindowTitle(tr("Settings"));
 
 		connect(qApp, SIGNAL(aboutToQuit()), SLOT(reject()));
@@ -200,10 +201,10 @@ namespace Core
 			page->apply();
 	}
 
-	SettingsDialog *SettingsDialog::instance(QWidget *parent)
+	SettingsDialog *SettingsDialog::instance()
 	{
 		if(!m_instance)
-			m_instance = new SettingsDialog(parent);
+			m_instance = new SettingsDialog();
 
 		return m_instance;
 	}

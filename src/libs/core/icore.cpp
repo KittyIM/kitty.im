@@ -22,14 +22,17 @@ namespace Core
 		m_mainWindow->init();
 	}
 
-	void ICore::showConsoleDialog(QWidget *parent)
+	void ICore::showConsoleDialog()
 	{
-		ConsoleDialog::instance(parent)->show();
+		ConsoleDialog::instance()->show();
 	}
 
-	void ICore::showSettingsDialog(QWidget *parent)
+	void ICore::showSettingsDialog(const QString &currentPage)
 	{
-		SettingsDialog::instance(parent)->show();
+		SettingsDialog *dlg = SettingsDialog::instance();
+		if(!currentPage.isEmpty())
+			dlg->setCurrentPage(currentPage);
+		dlg->show();
 	}
 
 	QString ICore::uiLocale()

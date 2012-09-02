@@ -19,10 +19,10 @@ namespace Core
 	ConsoleDialog *ConsoleDialog::m_instance = 0;
 	QList<IConsoleTab*> ConsoleDialog::m_tabs;
 
-	ConsoleDialog *ConsoleDialog::instance(QWidget *parent)
+	ConsoleDialog *ConsoleDialog::instance()
 	{
 		if(!m_instance)
-			m_instance = new ConsoleDialog(parent);
+			m_instance = new ConsoleDialog();
 
 		return m_instance;
 	}
@@ -43,6 +43,7 @@ namespace Core
 		m_tabWidget(new QTabWidget)
 	{
 		setMinimumSize(400, 200);
+		setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 		setWindowTitle(tr("Console"));
 
 		connect(qApp, SIGNAL(aboutToQuit()), SLOT(reject()));
