@@ -24,8 +24,14 @@ namespace Core
 		const char TOOLBAR_MAIN[]		= "Toolbar.Main";
 		const char TOOLBAR_PLUGINS[]	= "Toolbar.Plugins";
 
+		//menus
+		const char MENU_MAIN[]			= "Menu.Main";
+		const char MENU_USER[]			= "Menu.User";
+		const char MENU_TRAY[]			= "Menu.Tray";
+
 		//actions
 		const char ACTION_ABOUT[]		= "Action.About";
+        const char ACTION_TOGGLEMAIN[]  = "Action.ToggleMainWindow";
 		const char ACTION_CONSOLE[]		= "Action.Console";
 		const char ACTION_SETTINGS[]	= "Action.Settings";
 		const char ACTION_QUIT[]		= "Action.Quit";

@@ -33,12 +33,12 @@ namespace Core
 	MainWindow::MainWindow(QSettings *settings, ProfileManager *profileManager) :
 		m_iCore(new ICore()),
 		m_settings(settings),
-		m_trayIcon(new TrayIcon),
 		m_profileManager(profileManager),
 		m_actionManager(new ActionManager(this)),
 		m_iconManager(new IconManager),
 		m_modeManager(new ModeManager),
-		m_modeWidget(new ModeWidget)
+        m_modeWidget(new ModeWidget),
+        m_trayIcon(new TrayIcon(m_actionManager, m_iconManager))
 	{
 		m_instance = this;
 		m_modeManager->setModeWidget(m_modeWidget);
@@ -83,8 +83,6 @@ namespace Core
 
 		readSettings();
 
-		m_trayIcon->setIcon(Constants::ICON_KITTY);
-
 		m_settings->beginGroup(settingsGroup);
 		if(!m_settings->value(hideOnStartupKey).toBool())
 			show();
@@ -99,14 +97,14 @@ namespace Core
 		ConsoleDialog::addTab(new CommandConsole());
 		ConsoleDialog::addTab(new IconConsole(m_iconManager));
 
-		//toolbars
-		QToolBar *toolBar = m_actionManager->createToolBar(Constants::TOOLBAR_MAIN);
-		m_actionManager->createToolBar(Constants::TOOLBAR_PLUGINS);
-
 		//actions
 		QAction *consoleAction = new QAction(tr("Console"), this);
 		connect(consoleAction, SIGNAL(triggered()), SLOT(showConsoleDialog()));
 		m_actionManager->registerAction(Constants::ACTION_CONSOLE, consoleAction);
+
+        QAction *toggleAction = new QAction(tr("Show / Hide"), this);
+        connect(toggleAction, SIGNAL(triggered()), SLOT(toggleWindow()));
+        m_actionManager->registerAction(Constants::ACTION_TOGGLEMAIN, toggleAction);
 
 		QAction *settingsAction = new QAction(tr("Settings"), this);
 		settingsAction->setProperty("iconId", Constants::ICON_SETTINGS);
@@ -124,17 +122,25 @@ namespace Core
 
 		//menus
 		QMenu *mainMenu = new QMenu(this);
+		m_actionManager->registerMenu(Constants::MENU_MAIN, mainMenu);
 
 		QAction *mainMenuAction = mainMenu->menuAction();
+		mainMenuAction->setText(tr("About"));
 		//menuAction->setProperty("iconId", Constants::IMAGE_KITTY48)
 		m_actionManager->registerAction("Action.MainMenuAction", mainMenuAction);
 
-		mainMenuAction->setText(tr("About"));
 		mainMenu->addAction(consoleAction);
 		mainMenu->addAction(settingsAction);
 		mainMenu->addAction(aboutAction);
 		mainMenu->addAction(quitAction);
+
+		//toolbars
+		QToolBar *toolBar = m_actionManager->createToolBar(Constants::TOOLBAR_MAIN);
 		toolBar->addAction(mainMenuAction);
+
+        m_actionManager->createToolBar(Constants::TOOLBAR_PLUGINS);
+
+        m_trayIcon->init();
 	}
 
 	void MainWindow::aboutToClose()
@@ -155,8 +161,13 @@ namespace Core
 
 	void MainWindow::showSettingsDialog()
 	{
-		ICore::showSettingsDialog(this);
-	}
+		m_trayIcon->setBlinkingIcon(Constants::ICON_SETTINGS);
+        ICore::showSettingsDialog(this);
+    }
+
+    void MainWindow::toggleWindow()
+    {
+    }
 
 	void MainWindow::readSettings()
 	{
@@ -172,6 +183,7 @@ namespace Core
 
 		m_iconManager->readSettings(m_settings);
 		m_modeManager->readSettings(m_settings);
+        m_trayIcon->readSettings(m_settings);
 	}
 
 	void MainWindow::writeSettings()

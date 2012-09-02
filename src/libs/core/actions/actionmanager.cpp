@@ -43,6 +43,14 @@ namespace Core
 		return toolBar;
 	}
 
+	void ActionManager::removeToolBar(const QString &id)
+	{
+		if(!m_toolBars.contains(id))
+			return;
+
+		//TODO
+	}
+
 	QToolBar *ActionManager::toolBar(const QString &id)
 	{
 		return m_toolBars.value(id);
@@ -65,7 +73,8 @@ namespace Core
 		if(!m_actions.contains(id))
 			return;
 
-		m_actions.remove(id);
+		//TODO
+		//m_actions.remove(id);
 
 		emit actionListChanged();
 	}
@@ -73,6 +82,48 @@ namespace Core
 	QAction *ActionManager::action(const QString &id)
 	{
 		return m_actions.value(id);
+	}
+
+	void ActionManager::registerMenu(const QString &id, QMenu *menu)
+	{
+		if(m_menus.contains(id))
+			return;
+
+		m_menus.insert(id, menu);
+
+		emit menuRegistered(id);
+		emit menuListChanged();
+	}
+
+	void ActionManager::unregisterMenu(const QString &id)
+	{
+		if(!m_menus.contains(id))
+			return;
+
+		//TODO
+
+		emit menuListChanged();
+	}
+
+	QMenu *ActionManager::menu(const QString &id)
+	{
+		return m_menus.value(id);
+	}
+
+	QStringList ActionManager::toolBarIds() const
+	{
+		QStringList ids = m_toolBars.keys();
+		qSort(ids);
+
+		return ids;
+	}
+
+	QStringList ActionManager::menuIds() const
+	{
+		QStringList ids = m_menus.keys();
+		qSort(ids);
+
+		return ids;
 	}
 
 	QStringList ActionManager::actionIds() const

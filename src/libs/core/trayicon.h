@@ -1,12 +1,16 @@
 #ifndef CORE_TRAYICON_H
 #define CORE_TRAYICON_H
 
+#include <QSystemTrayIcon>
 #include <QTimer>
 
-class QSystemTrayIcon;
+class QSettings;
 
 namespace Core
 {
+    class ActionManager;
+    class IconManager;
+
 	class TrayIcon : public QObject
 	{
 		Q_OBJECT
@@ -15,11 +19,14 @@ namespace Core
 			static TrayIcon *instance();
 
 		public:
-			TrayIcon(QObject *parent = 0);
+            TrayIcon(ActionManager *actionManager, IconManager *iconManager, QObject *parent = 0);
 			~TrayIcon();
 
 			void setIcon(const QString &iconId);
-			void setBlinkingIcon(const QString &iconId, const int &msecs = 300, const int &timeout = -1);
+			void setBlinkingIcon(const QString &iconId, const int &msecs = 700, const int &timeout = -1);
+
+			void readSettings(QSettings *settings);
+            void init();
 
 		public slots:
 			void stopBlinking();
@@ -30,9 +37,12 @@ namespace Core
 
 		private slots:
 			void blinkIcon();
+			void checkForClick(QSystemTrayIcon::ActivationReason reason);
 
 		private:
 			static TrayIcon *m_instance;
+            ActionManager *m_actionManager;
+            IconManager *m_iconManager;
 			QSystemTrayIcon *m_trayIcon;
 			QString m_iconId;
 			QString m_prevIconId;

@@ -37,6 +37,7 @@ namespace Core
 			void aboutToClose();
 			void showConsoleDialog();
 			void showSettingsDialog();
+            void toggleWindow();
 
 		private:
 			void readSettings();
@@ -46,12 +47,12 @@ namespace Core
 			static MainWindow *m_instance;
 			ICore *m_iCore;
 			QSettings *m_settings;
-			TrayIcon *m_trayIcon;
 			ProfileManager *m_profileManager;
 			ActionManager *m_actionManager;
 			IconManager *m_iconManager;
 			ModeManager *m_modeManager;
 			ModeWidget *m_modeWidget;
+            TrayIcon *m_trayIcon;
 	};
 
 }
