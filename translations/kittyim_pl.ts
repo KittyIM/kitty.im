@@ -14,12 +14,20 @@
 quit - quits kitty.im
 restart [arguments] - restarts kitty.im with (optional) arguments
 help - displays this help</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/libs/core/console/commandconsole.cpp" line="56"/>
         <source>Unknown command, use help to get list of available commands.</source>
         <translation>Nieznana komenda, wpisz help by otrzymać listę komend.</translation>
+    </message>
+</context>
+<context>
+    <name>Core::ConsoleDialog</name>
+    <message>
+        <location filename="../src/libs/core/console/consoledialog.cpp" line="46"/>
+        <source>Console</source>
+        <translation>Konsola</translation>
     </message>
 </context>
 <context>
@@ -33,7 +41,7 @@ help - displays this help</source>
 <context>
     <name>Core::IconConsole</name>
     <message>
-        <location filename="../src/libs/core/console/iconconsole.cpp" line="18"/>
+        <location filename="../src/libs/core/console/iconconsole.cpp" line="17"/>
         <source>Icons</source>
         <translation>Ikony</translation>
     </message>
@@ -41,23 +49,28 @@ help - displays this help</source>
 <context>
     <name>Core::MainWindow</name>
     <message>
-        <location filename="../src/libs/core/mainwindow.cpp" line="98"/>
+        <location filename="../src/libs/core/mainwindow.cpp" line="112"/>
         <source>Console</source>
         <translation>Konsola</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/mainwindow.cpp" line="102"/>
+        <location filename="../src/libs/core/mainwindow.cpp" line="116"/>
+        <source>Show / Hide</source>
+        <translation>Pokaż / Ukryj</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/mainwindow.cpp" line="120"/>
         <source>Settings</source>
         <translation>Ustawienia</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/mainwindow.cpp" line="106"/>
-        <location filename="../src/libs/core/mainwindow.cpp" line="122"/>
+        <location filename="../src/libs/core/mainwindow.cpp" line="125"/>
+        <location filename="../src/libs/core/mainwindow.cpp" line="139"/>
         <source>About</source>
         <translation>O...</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/mainwindow.cpp" line="110"/>
+        <location filename="../src/libs/core/mainwindow.cpp" line="129"/>
         <source>Quit</source>
         <translation>Wyjdź</translation>
     </message>
@@ -165,52 +178,47 @@ help - displays this help</source>
 <context>
     <name>Core::SettingsPages::ConnectionSettingsWidget</name>
     <message>
-        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="26"/>
+        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="23"/>
         <source>Disconnect when going to sleep</source>
         <translation>Rozłącz przy usypianiu</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="33"/>
+        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="30"/>
         <source>Reconnect on wake up</source>
         <translation>Połącz ponownie przy rozbudzeniu</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="40"/>
+        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="37"/>
         <source>Reconnect after loosing connection</source>
         <translation>Połącz ponownie po utraceniu połączenia</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="53"/>
+        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="50"/>
         <source>Proxy</source>
         <translation>Proxy</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="62"/>
+        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="59"/>
         <source>Use proxy</source>
         <translation>Używaj proxy</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="69"/>
+        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="66"/>
         <source>Server and port:</source>
         <translation>Serwer i port:</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="124"/>
+        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="121"/>
         <source>Server requires authentication:</source>
         <translation>Serwer wymaga autoryzacji:</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="138"/>
+        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="135"/>
         <source>Username:</source>
         <translation>Użytkownik:</translation>
     </message>
     <message>
-        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="145"/>
+        <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="142"/>
         <source>Password:</source>
         <translation>Hasło:</translation>
     </message>
@@ -231,14 +239,75 @@ help - displays this help</source>
 <context>
     <name>Core::SettingsPages::GeneralSettingsWidget</name>
     <message>
-        <location filename="../src/libs/core/settings/generalsettingswidget.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/libs/core/settings/generalsettingswidget.ui" line="26"/>
+        <location filename="../src/libs/core/settings/generalsettingswidget.ui" line="23"/>
         <source>Language:</source>
         <translation>Język:</translation>
+    </message>
+</context>
+<context>
+    <name>Core::SettingsPages::MainWindowSettings</name>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettings.cpp" line="20"/>
+        <source>Main window</source>
+        <translation>Okno główne</translation>
+    </message>
+</context>
+<context>
+    <name>Core::SettingsPages::MainWindowSettingsWidget</name>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="26"/>
+        <source>Always on top</source>
+        <translation>Zawsze na wierzchu</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="93"/>
+        <source>Transparency:</source>
+        <translation>Przezroczystość:</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="70"/>
+        <source>0 sec</source>
+        <translation>0 sek</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="83"/>
+        <source>120 sec</source>
+        <translation>120 sek</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="33"/>
+        <source>Hide on startup</source>
+        <translation>Ukryj na starcie</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="40"/>
+        <source>Hide from taskbar</source>
+        <translation>Nie pokazuj w pasku zadań</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="47"/>
+        <source>Autohide after (0 = disabled):</source>
+        <translation>Autoukrywanie (0 - wyłączone):</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="148"/>
+        <source>Docking</source>
+        <translation>Dokowanie</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="160"/>
+        <source>When closer than:</source>
+        <translation>Gdy bliżej niż:</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="170"/>
+        <source> px</source>
+        <translation> px</translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="177"/>
+        <source>Dock to desktop edges</source>
+        <translation>Dokuj do krawędzi pulpitu</translation>
     </message>
 </context>
 </TS>

@@ -21,6 +21,7 @@ static const char languageKey[] = "language";
 int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
+	app.setQuitOnLastWindowClosed(false);
 	QApplication::setApplicationName("kitty.im");
 	QApplication::setOrganizationName("arturo182");
 

@@ -14,5 +14,4 @@ HEADERS += im_global.h \
 
 TRANSLATIONS = translations/im_untranslated.ts translations/im_pl.ts
 
-RESOURCES += \
-    im.qrc
+RESOURCES   += im.qrc

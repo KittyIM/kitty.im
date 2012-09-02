@@ -18,6 +18,7 @@ namespace Core
 
 		//settings
 		const char SETTINGS_GENERAL[]    = "Setting.General";
+		const char SETTINGS_MAINWINDOW[] = "Setting.MainWindow";
 		const char SETTINGS_CONNECTION[] = "Setting.Connection";
 
 		//toolbars

@@ -4,6 +4,7 @@
 #include "core_global.h"
 
 #include <QMainWindow>
+#include <QTimer>
 
 class QSettings;
 
@@ -33,6 +34,24 @@ namespace Core
 			QSettings *settings() { return m_settings; }
 			ProfileManager *profileManager() { return m_profileManager; }
 
+			bool isToolWindow() const;
+			void setToolWindow(const bool &toolWindow);
+
+			bool isAlwaysOnTop() const;
+			void setAlwaysOnTop(const bool &alwaysOnTop);
+
+			int autoHideTime() const;
+			void setAutoHideTime(const int &msecs);
+
+			bool isDocking() const	{ return m_docking; }
+			void setDocking(const bool &docking) { m_docking = docking; }
+			int dockingDistance() const	{ return m_dockingDistance; }
+			void setDockingDistance(const int &px) { m_dockingDistance = px; }
+
+		protected:
+			void leaveEvent(QEvent *event);
+			void enterEvent(QEvent *event);
+
 		private slots:
 			void aboutToClose();
 			void showConsoleDialog();
@@ -53,6 +72,9 @@ namespace Core
 			ModeManager *m_modeManager;
 			ModeWidget *m_modeWidget;
             TrayIcon *m_trayIcon;
+			QTimer m_autoHideTimer;
+			bool m_docking; //TODO
+			int m_dockingDistance;
 	};
 
 }

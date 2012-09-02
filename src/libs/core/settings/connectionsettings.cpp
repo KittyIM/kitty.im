@@ -6,11 +6,11 @@
 
 #include <QSettings>
 
-const char connectionGroup[]      = "App/Connection";
-const char sleepDisconnectKey[]   = "sleepDisconnect";
-const char wakeupConnectKey[]     = "wakeupConnect";
-const char autoReconnectKey[]     = "autoReconnect";
-const char connectionProxyGroup[] = "Proxy";
+const char connectionGroup[]			= "App/Connection";
+const char sleepDisconnectKey[]		= "sleepDisconnect";
+const char wakeupConnectKey[]		= "wakeupConnect";
+const char autoReconnectKey[]		= "autoReconnect";
+const char connectionProxyGroup[]	= "Proxy";
 
 namespace Core
 {

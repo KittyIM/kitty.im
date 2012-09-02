@@ -10,7 +10,7 @@
 #include <QDebug>
 #include <QDir>
 
-static const char appGroup[] = "App";
+static const char settingsGroup[] = "App";
 static const char languageKey[] = "language";
 
 namespace Core
@@ -30,7 +30,7 @@ namespace Core
 			m_widget = new GeneralSettingsWidget();
 
 			QSettings *settings = ICore::settings();
-			settings->beginGroup(appGroup);
+			settings->beginGroup(settingsGroup);
 
 			const QString currentLocale = settings->value(languageKey).toString();
 
@@ -63,7 +63,7 @@ namespace Core
 				return;
 
 			QSettings *settings = ICore::settings();
-			settings->beginGroup(appGroup);
+			settings->beginGroup(settingsGroup);
 
 			//language
 			const int languageIdx = m_widget->ui->languageComboBox->currentIndex();

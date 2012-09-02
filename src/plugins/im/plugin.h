@@ -22,7 +22,6 @@ namespace Im
 			bool initialize(QString *errorString);
 			void pluginsInitialized();
 			void aboutToClose();
-
 	};
 }
 

@@ -30,7 +30,8 @@ SOURCES     += profiles/profilemanager.cpp \
 			   icons/icontheme.cpp \
 			   icons/iconmanager.cpp \
 			   console/iconconsole.cpp \
-    trayicon.cpp
+    trayicon.cpp \
+    settings/mainwindowsettings.cpp
 
 HEADERS     += profiles/profilemanager.h \
                profiles/profiledialog.h \
@@ -59,12 +60,14 @@ HEADERS     += profiles/profilemanager.h \
 			   icons/iconmanager.h \
 			   icons/icontheme.h \
 			   console/iconconsole.h \
-    trayicon.h
+    trayicon.h \
+    settings/mainwindowsettings.h
 
 INCLUDEPATH += $$PWD
 
 FORMS       += profiles/profiledialog.ui \
 			   settings/generalsettingswidget.ui \
-			   settings/connectionsettingswidget.ui
+			   settings/connectionsettingswidget.ui \
+    settings/mainwindowsettingswidget.ui
 
 RESOURCES   += core.qrc

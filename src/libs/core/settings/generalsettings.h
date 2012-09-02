@@ -14,7 +14,7 @@ namespace Core
 
 		class GeneralSettings : public Core::ISettingsPage
 		{
-				Q_OBJECT
+			Q_OBJECT
 
 			public:
 				GeneralSettings();
@@ -29,7 +29,7 @@ namespace Core
 
 		class GeneralSettingsWidget : public QWidget
 		{
-				Q_OBJECT
+			Q_OBJECT
 
 			public:
 				GeneralSettingsWidget();
