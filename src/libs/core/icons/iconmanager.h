@@ -1,7 +1,7 @@
 #ifndef CORE_ICONMANAGER_H
 #define CORE_ICONMANAGER_H
 
-#include "../core_global.h"
+#include "../global.h"
 
 #include <QPixmap>
 #include <QHash>

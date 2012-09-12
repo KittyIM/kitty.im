@@ -1,7 +1,7 @@
 #ifndef CORE_SETTINGSDIALOG_H
 #define CORE_SETTINGSDIALOG_H
 
-#include "../core_global.h"
+#include "../global.h"
 
 #include <QDialog>
 #include <QHash>

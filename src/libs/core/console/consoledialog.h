@@ -1,7 +1,7 @@
 #ifndef CORE_CONSOLEDIALOG_H
 #define CORE_CONSOLEDIALOG_H
 
-#include "../core_global.h"
+#include "../global.h"
 
 #include <QDialog>
 #include <QMap>

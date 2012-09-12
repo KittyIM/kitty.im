@@ -3,7 +3,7 @@
 
 #include <QMap>
 
-#include "core_global.h"
+#include "global.h"
 
 namespace Core
 {

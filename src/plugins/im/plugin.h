@@ -3,7 +3,7 @@
 
 #include <core/plugins/iplugin.h>
 
-#include "im_global.h"
+#include "global.h"
 
 namespace Im
 {

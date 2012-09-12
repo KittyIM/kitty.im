@@ -2,7 +2,7 @@
 
 #include <actions/actionmanager.h>
 #include <icons/iconmanager.h>
-#include <core_constants.h>
+#include <constants.h>
 
 #include <QMenu>
 

@@ -1,7 +1,7 @@
 #ifndef CORE_MAINWINDOW_H
 #define CORE_MAINWINDOW_H
 
-#include "core_global.h"
+#include "global.h"
 
 #include <QMainWindow>
 #include <QTimer>

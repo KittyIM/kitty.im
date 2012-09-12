@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QIcon>
 
-#include "../core_global.h"
+#include "../global.h"
 
 namespace Core
 {

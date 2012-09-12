@@ -1,7 +1,7 @@
 #ifndef CORE_PROFILEDIALOG_H
 #define CORE_PROFILEDIALOG_H
 
-#include "../core_global.h"
+#include "../global.h"
 
 #include <QDialog>
 

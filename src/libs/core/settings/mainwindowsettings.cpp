@@ -1,8 +1,8 @@
 #include "mainwindowsettings.h"
 #include "ui_mainwindowsettingswidget.h"
 
-#include <core_constants.h>
 #include <mainwindow.h>
+#include <constants.h>
 #include <icore.h>
 
 #include <QSettings>

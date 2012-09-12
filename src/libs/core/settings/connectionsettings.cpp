@@ -1,7 +1,7 @@
 #include "connectionsettings.h"
 #include "ui_connectionsettingswidget.h"
 
-#include <core_constants.h>
+#include <constants.h>
 #include <icore.h>
 
 #include <QSettings>

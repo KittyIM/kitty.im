@@ -6,7 +6,7 @@
 #include <QDateTime>
 #include <QDebug>
 
-#include <core_constants.h>
+#include <constants.h>
 
 namespace Core
 {

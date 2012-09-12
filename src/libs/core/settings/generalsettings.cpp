@@ -1,7 +1,7 @@
 #include "generalsettings.h"
 #include "ui_generalsettingswidget.h"
 
-#include <core_constants.h>
+#include <constants.h>
 #include <icore.h>
 
 #include <QPushButton>

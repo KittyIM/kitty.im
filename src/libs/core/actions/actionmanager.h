@@ -1,7 +1,7 @@
 #ifndef CORE_ACTIONMANAGER_H
 #define CORE_ACTIONMANAGER_H
 
-#include "../core_global.h"
+#include "../global.h"
 
 #include <QToolBar>
 #include <QAction>

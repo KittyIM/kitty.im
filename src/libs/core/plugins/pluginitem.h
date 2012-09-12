@@ -1,7 +1,7 @@
 #ifndef CORE_PLUGINITEM_H
 #define CORE_PLUGINITEM_H
 
-#include "../core_global.h"
+#include "../global.h"
 
 namespace Core
 {

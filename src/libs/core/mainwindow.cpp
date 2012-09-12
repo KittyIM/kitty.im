@@ -12,7 +12,7 @@
 #include <modes/modemanager.h>
 #include <icons/iconmanager.h>
 #include <modes/modewidget.h>
-#include <core_constants.h>
+#include <constants.h>
 #include <trayicon.h>
 #include <icore.h>
 

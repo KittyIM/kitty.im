@@ -6,6 +6,7 @@ include(../3rdparty/qtwin/qtwin.pri)
 TARGET       = core
 DESTDIR      = $$BIN_PATH
 TEMPLATE     = lib
+CONFIG		+= dll
 
 DEFINES     += CORE_LIBRARY
 
@@ -43,9 +44,7 @@ HEADERS     += profiles/profilemanager.h \
                modes/modetabbar.h \
                modes/imode.h \
                argumentparser.h \
-               core_constants.h \
                jsonsettings.h \
-               core_global.h \
                mainwindow.h \
 			   actions/actionmanager.h \
 			   settings/settingsdialog.h \
@@ -61,7 +60,9 @@ HEADERS     += profiles/profilemanager.h \
 			   icons/icontheme.h \
 			   console/iconconsole.h \
     trayicon.h \
-    settings/mainwindowsettings.h
+    settings/mainwindowsettings.h \
+    global.h \
+    constants.h
 
 INCLUDEPATH += $$PWD
 

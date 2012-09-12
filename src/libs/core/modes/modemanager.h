@@ -1,7 +1,7 @@
 #ifndef CORE_MODEMANAGER_H
 #define CORE_MODEMANAGER_H
 
-#include "../core_global.h"
+#include "../global.h"
 
 class QSettings;
 

@@ -1,7 +1,7 @@
 #ifndef CORE_ICORE_H
 #define CORE_ICORE_H
 
-#include "core_global.h"
+#include "global.h"
 
 #include <QPixmap>
 

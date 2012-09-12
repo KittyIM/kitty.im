@@ -1,7 +1,7 @@
 #ifndef CORE_PLUGINMANAGER_H
 #define CORE_PLUGINMANAGER_H
 
-#include "../core_global.h"
+#include "../global.h"
 
 #include <QStringList>
 

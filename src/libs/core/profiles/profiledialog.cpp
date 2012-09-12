@@ -9,8 +9,8 @@
 
 #include <profiles/profilemanager.h>
 #include <3rdparty/qtwin/qtwin.h>
-#include <core_constants.h>
 #include <utils/utils.h>
+#include <constants.h>
 
 namespace Core
 {

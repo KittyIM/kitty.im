@@ -1,7 +1,7 @@
 #ifndef CORE_IPLUGIN_H
 #define CORE_IPLUGIN_H
 
-#include "../core_global.h"
+#include "../global.h"
 
 namespace Core
 {

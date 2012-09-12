@@ -5,6 +5,7 @@ QT          -= gui
 TARGET       = utils
 DESTDIR      = $$BIN_PATH
 TEMPLATE     = lib
+CONFIG		+= dll
 
 DEFINES     += UTILS_LIBRARY
 

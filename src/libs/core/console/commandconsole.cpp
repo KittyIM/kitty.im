@@ -7,7 +7,7 @@
 #include <QLineEdit>
 #include <QDebug>
 
-#include <core_constants.h>
+#include <constants.h>
 #include <icore.h>
 
 namespace Core

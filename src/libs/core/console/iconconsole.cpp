@@ -5,7 +5,7 @@
 #include <QDebug>
 
 #include <icons/iconmanager.h>
-#include <core_constants.h>
+#include <constants.h>
 
 namespace Core
 {

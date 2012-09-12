@@ -1,7 +1,7 @@
 #ifndef CORE_PROFILEMANAGER_H
 #define CORE_PROFILEMANAGER_H
 
-#include "../core_global.h"
+#include "../global.h"
 
 namespace Core
 {
