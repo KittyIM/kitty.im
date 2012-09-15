@@ -54,13 +54,13 @@ namespace Core
 	{
 		m_instance = this;
 		m_modeManager->setModeWidget(m_modeWidget);
-		m_trayIcon->setToolTip(QString("kitty.im v%1").arg(Constants::VERSION));
+		m_trayIcon->setToolTip(QString("lily.im v%1").arg(Constants::VERSION));
 		m_autoHideTimer.setSingleShot(true);
 
 		connect(qApp, SIGNAL(aboutToQuit()), SLOT(aboutToClose()));
 		connect(&m_autoHideTimer, SIGNAL(timeout()), SLOT(hide()));
 
-		setWindowTitle(QString("kitty.im v%1").arg(Constants::VERSION));
+		setWindowTitle(QString("lily.im v%1").arg(Constants::VERSION));
 		setCentralWidget(m_modeWidget);
 	}
 
@@ -91,7 +91,7 @@ namespace Core
 			return;
 
 		//icons
-		m_iconManager->registerDefault(Constants::ICON_KITTY, QPixmap(":/core/images/kitty_48.png"));
+		m_iconManager->registerDefault(Constants::ICON_LILY, QPixmap(":/core/images/lily_48.png"));
 		m_iconManager->registerDefault(Constants::ICON_SETTINGS, QPixmap(":/core/images/icons/wrench.png"));
 		//m_iconManager->registerDefault(Constants::ICON_CLOSE, QPixmap(":/"));
 
@@ -127,7 +127,7 @@ namespace Core
 		m_actionManager->registerAction(Constants::ACTION_SETTINGS, settingsAction);
 
 		QAction *aboutAction = new QAction(tr("About"), this);
-		//aboutAction->setProperty("iconId", Constants::IMAGE_KITTY48);
+		//aboutAction->setProperty("iconId", Constants::IMAGE_LILY48);
 		m_actionManager->registerAction(Constants::ACTION_ABOUT, aboutAction);
 
 		QAction *quitAction = new QAction(tr("Quit"), this);
@@ -141,7 +141,7 @@ namespace Core
 
 		QAction *mainMenuAction = mainMenu->menuAction();
 		mainMenuAction->setText(tr("About"));
-		//menuAction->setProperty("iconId", Constants::IMAGE_KITTY48)
+		//menuAction->setProperty("iconId", Constants::IMAGE_LILY48)
 		m_actionManager->registerAction("Action.MainMenuAction", mainMenuAction);
 
 		mainMenu->addAction(consoleAction);

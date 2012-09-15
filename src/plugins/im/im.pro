@@ -1,4 +1,4 @@
-include(../../../kittyim.pri)
+include(../../../lilyim.pri)
 include(../../libs/core/core.pri)
 
 TARGET   = im

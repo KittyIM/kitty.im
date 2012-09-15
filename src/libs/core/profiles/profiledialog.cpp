@@ -36,7 +36,7 @@ namespace Core
 
 	void ProfileDialog::showEvent(QShowEvent *event)
 	{
-		m_ui->versionLabel->setText(QString("kitty.im v%1").arg(Constants::VERSION));
+		m_ui->versionLabel->setText(QString("lily.im v%1").arg(Constants::VERSION));
 
 		updateProfiles();
 	}
@@ -162,12 +162,12 @@ namespace Core
 			profileItem->setText(0, profileName);
 
 			QString avatarPath = m_profileManager->profilePath(profileName) + "/avatar.png";
-			profileItem->setIcon(0, QIcon(QFile::exists(avatarPath) ? avatarPath :  Constants::IMAGE_KITTY48));
+			profileItem->setIcon(0, QIcon(QFile::exists(avatarPath) ? avatarPath :  Constants::IMAGE_LILY48));
 		}
 
 		QTreeWidgetItem *addProfileItem = new QTreeWidgetItem(m_ui->profileTree);
 		addProfileItem->setText(0, tr("Add profile..."));
-		addProfileItem->setIcon(0, QIcon(Constants::IMAGE_KITTY48));
+		addProfileItem->setIcon(0, QIcon(Constants::IMAGE_LILY48));
 		addProfileItem->setData(0, Qt::UserRole, true);
 	}
 }

@@ -15,10 +15,10 @@ namespace Core
 		return m_instance;
 	}
 
-    TrayIcon::TrayIcon(ActionManager *actionManager, IconManager *iconManager, QObject *parent) :
+	TrayIcon::TrayIcon(ActionManager *actionManager, IconManager *iconManager, QObject *parent) :
 		QObject(parent),
-        m_actionManager(actionManager),
-        m_iconManager(iconManager),
+		m_actionManager(actionManager),
+		m_iconManager(iconManager),
 		m_trayIcon(new QSystemTrayIcon),
 		m_blink(false)
 	{
@@ -40,7 +40,7 @@ namespace Core
 	void TrayIcon::setIcon(const QString &iconId)
 	{
 		m_iconId = iconId;
-        m_trayIcon->setIcon(m_iconManager->icon(iconId));
+		m_trayIcon->setIcon(m_iconManager->icon(iconId));
 	}
 
 	void TrayIcon::setBlinkingIcon(const QString &iconId, const int &msecs, const int &timeout)
@@ -55,22 +55,22 @@ namespace Core
 
 	void TrayIcon::readSettings(QSettings *settings)
 	{
-        m_trayIcon->show();
-    }
+		m_trayIcon->show();
+	}
 
-    void TrayIcon::init()
-    {
-        setIcon(Constants::ICON_KITTY);
+	void TrayIcon::init()
+	{
+		setIcon(Constants::ICON_LILY);
 
-        QMenu *trayMenu = new QMenu();
-        trayMenu->addAction(m_actionManager->action(Constants::ACTION_TOGGLEMAIN));
-        trayMenu->addAction(m_actionManager->action(Constants::ACTION_SETTINGS));
-        trayMenu->addSeparator();
-        trayMenu->addAction(m_actionManager->action(Constants::ACTION_QUIT));
-        m_trayIcon->setContextMenu(trayMenu);
+		QMenu *trayMenu = new QMenu();
+		trayMenu->addAction(m_actionManager->action(Constants::ACTION_TOGGLEMAIN));
+		trayMenu->addAction(m_actionManager->action(Constants::ACTION_SETTINGS));
+		trayMenu->addSeparator();
+		trayMenu->addAction(m_actionManager->action(Constants::ACTION_QUIT));
+		m_trayIcon->setContextMenu(trayMenu);
 
-        m_actionManager->registerMenu(Constants::MENU_TRAY, trayMenu);
-    }
+		m_actionManager->registerMenu(Constants::MENU_TRAY, trayMenu);
+	}
 
 	void TrayIcon::stopBlinking()
 	{
@@ -86,7 +86,7 @@ namespace Core
 
 	void TrayIcon::blinkIcon()
 	{
-        m_trayIcon->setIcon(m_blink ? m_iconManager->icon(m_iconId) : QIcon());
+		m_trayIcon->setIcon(m_blink ? m_iconManager->icon(m_iconId) : QIcon());
 		m_blink = !m_blink;
 	}
 

@@ -41,10 +41,10 @@ namespace Core
 				m_widget->ui->languageComboBox->setCurrentIndex(m_widget->ui->languageComboBox->count() - 1);
 
 			const QString translationPath = qApp->applicationDirPath() + "/translations";
-			const QFileInfoList translationFiles = QDir(translationPath).entryInfoList(QStringList() << "kittyim_*.qm");
+			const QFileInfoList translationFiles = QDir(translationPath).entryInfoList(QStringList() << "lilyim_*.qm");
 
 			foreach(const QFileInfo &fileInfo, translationFiles) {
-				const QString locale = fileInfo.baseName().remove("kittyim_");
+				const QString locale = fileInfo.baseName().remove("lilyim_");
 
 				m_widget->ui->languageComboBox->addItem(QLocale::languageToString(QLocale(locale).language()), locale);
 				if(locale == currentLocale) {

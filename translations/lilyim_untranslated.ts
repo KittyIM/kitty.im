@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="pl_PL">
+<TS version="2.0">
 <context>
     <name>Core::CommandConsole</name>
     <message>
         <location filename="../src/libs/core/console/commandconsole.cpp" line="20"/>
         <source>Command line</source>
-        <translation>Linia komend</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/console/commandconsole.cpp" line="54"/>
         <source>Available commands:
-quit - quits kitty.im
-restart [arguments] - restarts kitty.im with (optional) arguments
+quit - quits lily.im
+restart [arguments] - restarts lily.im with (optional) arguments
 help - displays this help</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/console/commandconsole.cpp" line="56"/>
         <source>Unknown command, use help to get list of available commands.</source>
-        <translation>Nieznana komenda, wpisz help by otrzymać listę komend.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Core::ConsoleDialog</name>
     <message>
-        <location filename="../src/libs/core/console/consoledialog.cpp" line="46"/>
+        <location filename="../src/libs/core/console/consoledialog.cpp" line="47"/>
         <source>Console</source>
-        <translation>Konsola</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -43,36 +43,36 @@ help - displays this help</source>
     <message>
         <location filename="../src/libs/core/console/iconconsole.cpp" line="17"/>
         <source>Icons</source>
-        <translation>Ikony</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Core::MainWindow</name>
     <message>
-        <location filename="../src/libs/core/mainwindow.cpp" line="112"/>
-        <source>Console</source>
-        <translation>Konsola</translation>
-    </message>
-    <message>
         <location filename="../src/libs/core/mainwindow.cpp" line="116"/>
-        <source>Show / Hide</source>
-        <translation>Pokaż / Ukryj</translation>
+        <source>Console</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/mainwindow.cpp" line="120"/>
-        <source>Settings</source>
-        <translation>Ustawienia</translation>
+        <source>Show / Hide</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/libs/core/mainwindow.cpp" line="125"/>
-        <location filename="../src/libs/core/mainwindow.cpp" line="139"/>
-        <source>About</source>
-        <translation>O...</translation>
+        <location filename="../src/libs/core/mainwindow.cpp" line="124"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/mainwindow.cpp" line="129"/>
+        <location filename="../src/libs/core/mainwindow.cpp" line="143"/>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/libs/core/mainwindow.cpp" line="133"/>
         <source>Quit</source>
-        <translation>Wyjdź</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -80,7 +80,7 @@ help - displays this help</source>
     <message>
         <location filename="../src/libs/core/plugins/pluginitem.cpp" line="61"/>
         <source>Can&apos;t cast to IPlugin</source>
-        <translation>Nie można rzutować na IPlugin</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -88,83 +88,83 @@ help - displays this help</source>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.ui" line="14"/>
         <source>Choose profile</source>
-        <translation>Wybór profilu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.ui" line="65"/>
         <source>Password:</source>
-        <translation>Hasło:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.ui" line="86"/>
         <source>Login</source>
-        <translation>Zaloguj</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.ui" line="96"/>
         <source>Delete</source>
-        <translation>Usuń</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="89"/>
         <source>Profile name</source>
-        <translation>Nazwa profilu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="89"/>
         <source>Enter name for the new profile</source>
-        <translation>Wprowadź nazwę nowego profilu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="95"/>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="100"/>
         <source>Profile creation failed</source>
-        <translation>Tworzenie profilu nie powiodło się</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="95"/>
         <source>Profile already exists.</source>
-        <translation>Profil już istenieje.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="100"/>
         <source>There was a problem creating your profile.</source>
-        <translation>Nastąpił problem z tworzeniem profilu.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="112"/>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="138"/>
         <source>Wrong password</source>
-        <translation>Błędne hasło</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="112"/>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="138"/>
         <source>The password you entered is wrong</source>
-        <translation>Podane hasło nie jest prawidłowe</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="146"/>
         <source>Are you sure?</source>
-        <translation>Czy jesteś pewien(a)?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="146"/>
         <source>Do you really want to delete profile &quot;%1&quot;?</source>
-        <translation>Czy na pewno chcesz usunąć profil &quot;%1&quot;?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/profiles/profiledialog.cpp" line="169"/>
         <source>Add profile...</source>
-        <translation>Dodaj profil...</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Core::SettingsDialog</name>
     <message>
-        <location filename="../src/libs/core/settings/settingsdialog.cpp" line="32"/>
+        <location filename="../src/libs/core/settings/settingsdialog.cpp" line="33"/>
         <source>Settings</source>
-        <translation>Ustawienia</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -172,7 +172,7 @@ help - displays this help</source>
     <message>
         <location filename="../src/libs/core/settings/connectionsettings.cpp" line="22"/>
         <source>Connection</source>
-        <translation>Połączenie</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -180,47 +180,47 @@ help - displays this help</source>
     <message>
         <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="23"/>
         <source>Disconnect when going to sleep</source>
-        <translation>Rozłącz przy usypianiu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="30"/>
         <source>Reconnect on wake up</source>
-        <translation>Połącz ponownie przy rozbudzeniu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="37"/>
         <source>Reconnect after loosing connection</source>
-        <translation>Połącz ponownie po utraceniu połączenia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="50"/>
         <source>Proxy</source>
-        <translation>Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="59"/>
         <source>Use proxy</source>
-        <translation>Używaj proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="66"/>
         <source>Server and port:</source>
-        <translation>Serwer i port:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="121"/>
         <source>Server requires authentication:</source>
-        <translation>Serwer wymaga autoryzacji:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="135"/>
         <source>Username:</source>
-        <translation>Użytkownik:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/connectionsettingswidget.ui" line="142"/>
         <source>Password:</source>
-        <translation>Hasło:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -228,12 +228,12 @@ help - displays this help</source>
     <message>
         <location filename="../src/libs/core/settings/generalsettings.cpp" line="23"/>
         <source>Settings</source>
-        <translation>Ustawienia</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/generalsettings.cpp" line="37"/>
         <source>System</source>
-        <translation>Systemowy</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@ help - displays this help</source>
     <message>
         <location filename="../src/libs/core/settings/generalsettingswidget.ui" line="23"/>
         <source>Language:</source>
-        <translation>Język:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -249,7 +249,7 @@ help - displays this help</source>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettings.cpp" line="20"/>
         <source>Main window</source>
-        <translation>Okno główne</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -257,57 +257,57 @@ help - displays this help</source>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="26"/>
         <source>Always on top</source>
-        <translation>Zawsze na wierzchu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="93"/>
         <source>Transparency:</source>
-        <translation>Przezroczystość:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="70"/>
         <source>0 sec</source>
-        <translation>0 sek</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="83"/>
         <source>120 sec</source>
-        <translation>120 sek</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="33"/>
         <source>Hide on startup</source>
-        <translation>Ukryj na starcie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="40"/>
         <source>Hide from taskbar</source>
-        <translation>Nie pokazuj w pasku zadań</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="47"/>
         <source>Autohide after (0 = disabled):</source>
-        <translation>Autoukrywanie (0 - wyłączone):</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="148"/>
         <source>Docking</source>
-        <translation>Dokowanie</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="160"/>
         <source>When closer than:</source>
-        <translation>Gdy bliżej niż:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="170"/>
         <source> px</source>
-        <translation> px</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/libs/core/settings/mainwindowsettingswidget.ui" line="177"/>
         <source>Dock to desktop edges</source>
-        <translation>Dokuj do krawędzi pulpitu</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

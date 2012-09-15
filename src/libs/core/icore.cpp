@@ -37,7 +37,7 @@ namespace Core
 
 	QString ICore::uiLocale()
 	{
-		return qApp->property("kittyim_locale").toString();
+		return qApp->property("lilyim_locale").toString();
 	}
 
 	QSettings *ICore::settings()

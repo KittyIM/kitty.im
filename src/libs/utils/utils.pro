@@ -1,4 +1,4 @@
-include(../../../kittyim.pri)
+include(../../../lilyim.pri)
 
 QT          -= gui
 
@@ -12,6 +12,6 @@ DEFINES     += UTILS_LIBRARY
 SOURCES     += utils.cpp
 
 HEADERS     += utils.h \
-               utils_global.h
+	       utils_global.h
 
 INCLUDEPATH += $$PWD

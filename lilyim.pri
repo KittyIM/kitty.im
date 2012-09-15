@@ -1,5 +1,5 @@
-!isEmpty(KITTYIM_PRI):error("kittyim.pri already included")
-KITTYIM_PRI = 1
+!isEmpty(LILYIM_PRI):error("lilyim.pri already included")
+LILYIM_PRI = 1
 
 BIN_PATH     = $$PWD/bin
 SRC_PATH     = $$PWD/src

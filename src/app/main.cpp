@@ -18,18 +18,18 @@
 static const char appGroup[] = "App";
 static const char languageKey[] = "language";
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	QApplication app(argc, argv);
 	app.setQuitOnLastWindowClosed(false);
-	QApplication::setApplicationName("kitty.im");
+	QApplication::setApplicationName("lily.im");
 	QApplication::setOrganizationName("arturo182");
 
 	Core::ArgumentParser argumentParser;
 	argumentParser.parseArguments(app.arguments());
 
 	//profile
-    QString profilePath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/profiles";
+	QString profilePath = QDesktopServices::storageLocation(QDesktopServices::DataLocation) + "/profiles";
 	if(argumentParser.contains("portable")) {
 		profilePath = app.applicationDirPath() + "/profiles";
 	}
@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
 	}
 
 	//settings
-    const QString settingsPath = profileManager.profilePath(profileName) + "/settings.json";
+	const QString settingsPath = profileManager.profilePath(profileName) + "/settings.json";
 	Core::JsonSettings settings(settingsPath);
 
 	//translation
@@ -66,13 +66,13 @@ int main(int argc, char *argv[])
 	foreach(QString locale, uiLanguages) {
 		locale.replace('-', '_');
 
-		if(translator.load("kittyim_" + locale, translationPath)) {
+		if(translator.load("lilyim_" + locale, translationPath)) {
 			const QString qtTrFile = "qt_" + locale;
 
 			if(qtTranslator.load(qtTrFile, translationPath)) {
 				app.installTranslator(&translator);
 				app.installTranslator(&qtTranslator);
-				app.setProperty("kittyim_locale", locale);
+				app.setProperty("lilyim_locale", locale);
 
 				break;
 			}
@@ -84,10 +84,10 @@ int main(int argc, char *argv[])
 	}
 
 	//mainwindow
-    Core::ICore::initMainWindow(&settings, &profileManager);
+	Core::ICore::initMainWindow(&settings, &profileManager);
 
 	//plugins
-    QStringList pluginPaths;
+	QStringList pluginPaths;
 	pluginPaths << app.applicationDirPath() + "/plugins";
 
 	Core::PluginManager pluginManager(pluginPaths);

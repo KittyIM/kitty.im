@@ -8,11 +8,11 @@ namespace Core
 		const char VERSION[]			= "0.0.1";
 
 		//images
-		const char IMAGE_KITTY48[]		= ":/core/images/kitty_48.png";
-		const char IMAGE_KITYLOGO[]		= ":/core/images/logo.png";
+		const char IMAGE_LILY48[]		= ":/core/images/lily_48.png";
+		const char IMAGE_LILYLOGO[]		= ":/core/images/logo.png";
 
 		//icons
-		const char ICON_KITTY[]			= "Icon.Kitty";
+		const char ICON_LILY[]			= "Icon.Lily";
 		const char ICON_SETTINGS[]		= "Icon.Settings";
 		const char ICON_CLOSE[]			= "Icon.Close";
 
@@ -32,7 +32,7 @@ namespace Core
 
 		//actions
 		const char ACTION_ABOUT[]		= "Action.About";
-        const char ACTION_TOGGLEMAIN[]  = "Action.ToggleMainWindow";
+		const char ACTION_TOGGLEMAIN[]  = "Action.ToggleMainWindow";
 		const char ACTION_CONSOLE[]		= "Action.Console";
 		const char ACTION_SETTINGS[]	= "Action.Settings";
 		const char ACTION_QUIT[]		= "Action.Quit";

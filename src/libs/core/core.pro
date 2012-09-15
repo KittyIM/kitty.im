@@ -1,4 +1,4 @@
-include(../../../kittyim.pri)
+include(../../../lilyim.pri)
 include(../utils/utils.pri)
 include(../3rdparty/json/json.pri)
 include(../3rdparty/qtwin/qtwin.pri)
@@ -11,15 +11,15 @@ CONFIG		+= dll
 DEFINES     += CORE_LIBRARY
 
 SOURCES     += profiles/profilemanager.cpp \
-               profiles/profiledialog.cpp \
-               plugins/pluginmanager.cpp \
-               plugins/pluginitem.cpp \
-               modes/modemanager.cpp \
-               modes/modewidget.cpp \
-               modes/modetabbar.cpp \
-               argumentparser.cpp \
-               jsonsettings.cpp \
-               mainwindow.cpp \
+	       profiles/profiledialog.cpp \
+	       plugins/pluginmanager.cpp \
+	       plugins/pluginitem.cpp \
+	       modes/modemanager.cpp \
+	       modes/modewidget.cpp \
+	       modes/modetabbar.cpp \
+	       argumentparser.cpp \
+	       jsonsettings.cpp \
+	       mainwindow.cpp \
 			   actions/actionmanager.cpp \
 			   settings/settingsdialog.cpp \
 			   settings/generalsettings.cpp \
@@ -35,17 +35,17 @@ SOURCES     += profiles/profilemanager.cpp \
     settings/mainwindowsettings.cpp
 
 HEADERS     += profiles/profilemanager.h \
-               profiles/profiledialog.h \
-               plugins/pluginmanager.h \
-               plugins/pluginitem.h \
-               plugins/iplugin.h \
-               modes/modemanager.h \
-               modes/modewidget.h \
-               modes/modetabbar.h \
-               modes/imode.h \
-               argumentparser.h \
-               jsonsettings.h \
-               mainwindow.h \
+	       profiles/profiledialog.h \
+	       plugins/pluginmanager.h \
+	       plugins/pluginitem.h \
+	       plugins/iplugin.h \
+	       modes/modemanager.h \
+	       modes/modewidget.h \
+	       modes/modetabbar.h \
+	       modes/imode.h \
+	       argumentparser.h \
+	       jsonsettings.h \
+	       mainwindow.h \
 			   actions/actionmanager.h \
 			   settings/settingsdialog.h \
 			   settings/isettingspage.h \

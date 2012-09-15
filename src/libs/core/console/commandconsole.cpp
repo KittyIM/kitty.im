@@ -51,7 +51,7 @@ namespace Core
 		} else if(cmd[0] == "restart") {
 			ICore::restart((cmd.count() > 1) ? cmd[1].split(' ') : QStringList());
 		} else if(cmd[0] == "help") {
-			m_commandText->append(tr("Available commands:\nquit - quits kitty.im\nrestart [arguments] - restarts kitty.im with (optional) arguments\nhelp - displays this help"));
+			m_commandText->append(tr("Available commands:\nquit - quits lily.im\nrestart [arguments] - restarts lily.im with (optional) arguments\nhelp - displays this help"));
 		} else {
 			m_commandText->append(tr("Unknown command, use help to get list of available commands."));
 		}

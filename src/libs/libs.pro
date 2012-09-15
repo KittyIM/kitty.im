@@ -2,7 +2,7 @@ TEMPLATE = subdirs
 CONFIG  += ordered
 
 SUBDIRS += utils \
-           3rdparty \
-           core
+	   3rdparty \
+	   core
 
-TRANSLATIONS = ../../translations/kittyim_untranslated.ts ../../translations/kittyim_pl.ts
+TRANSLATIONS = ../../translations/lilyim_untranslated.ts ../../translations/lilyim_pl.ts

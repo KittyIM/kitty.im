@@ -1,9 +1,9 @@
-include(../../kittyim.pri)
+include(../../lilyim.pri)
 include(../libs/core/core.pri)
 
 DESTDIR  = ../../bin
-TARGET   = kittyim
+TARGET   = lilyim
 
 SOURCES += main.cpp
 
-RC_FILE  = kittyim.rc
+RC_FILE  = lilyim.rc
